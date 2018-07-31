@@ -252,6 +252,9 @@ main h2 {
 	color: #084561;
 	border-bottom: 1px solid #f8ad32;
 }
+#buorg {
+	display: none!important;
+}
 
 /*
 	Tabs
@@ -566,8 +569,43 @@ h2.contentsbox-subtitle {
 #currentLangProgDiv > label:hover {
 	background: #396a81;
 }
+
+.qtip {
+	border: none;
+	background-color: #396a81;
+	border-radius: 0px;
+	border-bottom: 5px solid #f8ad32;
+}
+.qtip-tip {
+	
+}
+
 .chapter-item-links a {
 	color: #222!important;
+}
+.chapter-item-row:hover {
+    background: white;
+}
+.chapter-item-row {
+    border-top: 1px solid #ccc;
+    border-bottom-width: 0px!important;
+	border-left: 3px solid transparent;
+}
+.chapter-item-row:last-child {
+    border-bottom: 1px solid #ccc!important;
+}
+.chapter-item-row:hover {
+	background: white;
+	border-left-color: #1088bf;
+}
+.trChapter:hover td {
+    background: white!important;
+}
+.trChapter {
+	border-left: 2px solid transparent;
+}
+.trChapter:hover {
+	border-left-color: #1088bf;
 }
 
 /*

@@ -52,3 +52,30 @@ $.get = function(url, callback) {
 };
 
 $("body > header img").attr("src", "https://image.ibb.co/emY6gK/header_logo2.png");
+$(".chapters-list-pbs").parent().addClass("trChapter");
+
+var updateQueryStringParam = function (key, value) {
+    var baseUrl = [location.protocol, '//', location.host, location.pathname].join(''),
+        urlQueryString = document.location.search,
+        newParam = key + '=' + value,
+        params = '?' + newParam;
+
+    // If the "search" string exists, then build params from it
+    if (urlQueryString) {
+        keyRegex = new RegExp('([\?&])' + key + '[^&]*');
+
+        // If param exists already, update it
+        if (urlQueryString.match(keyRegex) !== null) {
+            params = urlQueryString.replace(keyRegex, "$1" + newParam);
+        } else { // Otherwise, add it to end of query string
+            params = urlQueryString + '&' + newParam;
+        }
+    }
+    window.history.replaceState({}, "", baseUrl + params);
+};
+$("#task-tabs > ul > li > a").click(function() {
+	updateQueryStringParam("sTab", $(this).attr("href").substring(1));
+});
+$("#progressionTabs > ul > li > a").click(function() {
+	updateQueryStringParam("progression", $(this).attr("href").slice(-1));
+});
