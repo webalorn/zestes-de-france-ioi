@@ -22,6 +22,6 @@
     "scripts": ["background.js"],
     "persistent": false
   },
-  "web_accessible_resources": ["zestes.js", "zestes.css", "img/logo.png", "img/ariane.png"],
+  "web_accessible_resources": ["zestes.js", "zestes.css", "img/*", "html/*"],
   "manifest_version": 2
 }

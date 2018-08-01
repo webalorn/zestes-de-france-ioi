@@ -97,6 +97,8 @@ html[lang=fr] .menu-language-select {
 .headerbox {
 	background: #084561;
 	border-bottom: 3px solid #f8ad32;
+	display: flex;
+	justify-content: space-between;
 }
 .headerbox .banner {
 	color: #fff;
@@ -117,7 +119,7 @@ html[lang=fr] .menu-language-select {
 	background: #eee;
 	-webkit-box-shadow: 0 0 4px rgba(0,0,0,.3);
 	box-shadow: 0 0 4px rgba(0,0,0,.3);
-	z-index: 1000;
+	z-index: 3;
 	font-size: 0px;
 	color: transparent;
 	padding: 0px;
@@ -151,6 +153,81 @@ html[lang=fr] .menu-language-select {
 .navigbox a:last-child:after {
 	display: none;
 }
+
+/*
+	Header menu
+*/
+#zesteMenu {
+	position: relative;
+}
+#zesteMenu > span label {
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+	display: block;
+}
+#zesteMenu > span img {
+	width: 40px;
+	height: 40px;
+	padding: 10px;
+}
+#zeste-menu-toogle {
+	display: none;
+}
+#zesteSubMenu {
+	width: 250px;
+	background: #19526c;
+	border-bottom: 3px solid #f8ad32;
+	box-shadow: 0 5px 7px rgba(0,0,0,.3);
+	font-size: 0.9rem;
+
+	position: absolute;
+	top: 60px;
+	right: 0px;
+	z-index: 10;
+
+	display: none;
+}
+#zeste-menu-fond {
+	position: fixed;
+	z-index: 9;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	width: 100%;
+	display: none;
+}
+#zeste-menu-toogle:checked + #zesteSubMenu {
+	display: block;
+}
+#zeste-menu-toogle:checked + #zesteSubMenu + span #zeste-menu-fond {
+	display: block;
+}
+#zesteSubMenu ul {
+	list-style-type: none;
+	padding: 0px;
+}
+#zesteSubMenu ul li {
+    margin: 0px;
+}
+#zesteSubMenu ul li:nth-child(odd) {
+    background-color: #084561;
+}
+#zesteSubMenu ul li a {
+	display: block;
+	padding: 0px;
+	padding-left: 10px;
+	height: 30px;
+	line-height: 30px;
+	color: white;
+	transition-property: opacity,background-color;
+	transition-duration: .15s;
+}
+#zesteSubMenu ul li a:hover {
+	background-color: #396a81;
+}
+
 
 /*
 	Footer
@@ -420,6 +497,10 @@ main h2 {
 	font-size: 0px;
 	display: flex;
 	justify-content: center;
+}
+.avatar-display img {
+	max-width: 256px;
+	max-height: 256px;
 }
 label[for="sLogin"] {display: inline-block;
 	height: 40px;

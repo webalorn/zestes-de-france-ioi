@@ -1,7 +1,11 @@
 (function() {
 	let zesteFiles = {
 		"logo" : "img/logo.png",
-		"ariane" : "img/ariane.png"
+		"ariane" : "img/ariane.png",
+		"menu" : "img/menu.png",
+		"piscine" : "img/piscine.jpg",
+		"crown" : "img/crown.png",
+		"menu_template" : "html/menu.html",
 	};
 	for (let name in zesteFiles) {
 		zesteFiles[name] = chrome.extension.getURL(zesteFiles[name]);

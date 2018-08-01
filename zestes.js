@@ -1,3 +1,4 @@
+let isConnected = false;
 (function() {
 	function updateQueryStringParam(key, value) {
 	    var baseUrl = [location.protocol, '//', location.host, location.pathname].join(''),
@@ -71,6 +72,52 @@
 	$( "<style>" + customCss + "</style>" ).appendTo("head");
 
 	/*
+		Tabs change url
+	*/
+	$("#task-tabs > ul > li > a").click(function() {
+		updateQueryStringParam("sTab", $(this).attr("href").substring(1));
+	});
+	$("#progressionTabs > ul > li > a").click(function() {
+		updateQueryStringParam("progression", $(this).attr("href").slice(-1));
+	});
+
+	/*
+		Create menu
+	*/
+	var docsUrls = {
+		"C" : "https://en.cppreference.com/w/c",
+		"Cpp" : "https://en.cppreference.com/w/",
+		"Python" : "https://docs.python.org/fr/3/library/index.html",
+		"Pascal" : "https://www.freepascal.org/docs.var",
+		"OCaml" : "http://caml.inria.fr/pub/docs/manual-ocaml/",
+		"Java" : "https://docs.oracle.com/javase/10/docs/api/overview-summary.html",
+		"JavaScool": "https://bit.ly/IqT6zt",
+	};
+
+	$.get(zesteFiles["menu_template"], function(data) {
+		$("body > header.headerbox").append(data);
+		$("#zesteMenu > span img").attr("src", zesteFiles["menu"]);
+
+		urlActu = encodeURIComponent(window.location.href);
+		$("#zesteLinkConnect").attr("href", $("#zesteLinkConnect").attr("href") + urlActu);
+		$("#zesteLinkDeco").attr("href", $("#zesteLinkDeco").attr("href") + urlActu);
+
+		if ($(".menuLogin .menuboxcontents > a").size()) { // Connected
+			isConnected = true;
+			$(".zesteGuestOnly").css("display", "none");
+		} else { // Guest
+			$(".zesteConnectedOnly").css("display", "none");
+		}
+
+		if (sSelectedLanguage in docsUrls) {
+			$("#zesteLinkDoc").attr("href", docsUrls[sSelectedLanguage]);
+		} else {
+			console.log("Not found");
+			$("#zesteLinkDoc").css("display", "none");
+		}
+	});
+
+	/*
 		Overload jQuery get method to update new content
 	*/
 	jqGet = $.get;
@@ -82,12 +129,19 @@
 	};
 
 	/*
-		Tabs change url
+		Some other easter eggs
 	*/
-	$("#task-tabs > ul > li > a").click(function() {
-		updateQueryStringParam("sTab", $(this).attr("href").substring(1));
-	});
-	$("#progressionTabs > ul > li > a").click(function() {
-		updateQueryStringParam("progression", $(this).attr("href").slice(-1));
+	$('img[src="http://data.france-ioi.org/Course/asso_presentation/simon_mauras.png"]').attr("src", zesteFiles['piscine']).css("width", "100px");
+	if ($(".perso-fiche-form #sLogin").size() && $("#sLogin").attr("value") == "mathias") {
+		$(".avatar-display img").attr("src", zesteFiles["crown"]);
+	}
+	if ($("#homeContents").size()) {
+		$("#homeContents").html($("#homeContents").html().replace(/Rémy Kimbrough/g,'Flamby'));
+	}
+	$(".avatar-display td").each(function(id) {
+		var el = $(this);
+		if (el.text() == "niveau 10") {
+			el.html("<strong>WHAT ???</strong>")
+		}
 	});
 })();
