@@ -47,6 +47,13 @@
 .menuCommunity a {
 	color: #0079b2;
 }
+.menuCommunity > ul > li {
+	margin: 0px;
+	padding: 4px 8px
+}
+.menuCommunity > ul > li:hover {
+	background: white;
+}
 
 .menu-language-select > div {
 	border-radius: 0px;
@@ -131,7 +138,7 @@ html[lang=fr] .menu-language-select {
 .navigbox a:after {
 	display: inline-block;
     content: " ";
-    background-image: url(https://image.ibb.co/bKcPYo/icon.png);
+    /*background-image: added in javascript*/
     background-size: contain;
 	background-repeat: no-repeat;
     opacity: .3;

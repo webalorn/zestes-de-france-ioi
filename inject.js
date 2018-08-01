@@ -1,4 +1,19 @@
 (function() {
+	let zesteFiles = {
+		"logo" : "img/logo.png",
+		"ariane" : "img/ariane.png"
+	};
+	for (let name in zesteFiles) {
+		zesteFiles[name] = chrome.extension.getURL(zesteFiles[name]);
+	}
+
+	let scriptCode = ['zesteFiles = ' + JSON.stringify(zesteFiles) + ';'].join('\n');
+
+	let scriptFilesUrl = document.createElement('script');
+	scriptFilesUrl.textContent = scriptCode;
+	(document.head||document.documentElement).appendChild(scriptFilesUrl);
+
+
 	let body = document.getElementsByTagName('body')[0];
 	let link = document.createElement('link');
 	let script = document.createElement('script');

@@ -4,10 +4,10 @@
   "version": "1.0",
   "permissions": ["tabs", "http://www.france-ioi.org/*", "activeTab"],
   "icons": {
-    "16": "icon16.png",
-    "32": "icon32.png",
-    "64": "icon64.png",
-    "128": "icon128.png"
+    "16": "img/icon16.png",
+    "32": "img/icon32.png",
+    "64": "img/icon64.png",
+    "128": "img/icon128.png"
   },
   "browser_action": {
     "default_title": "Zestes de France-IOI"
@@ -22,6 +22,6 @@
     "scripts": ["background.js"],
     "persistent": false
   },
-  "web_accessible_resources": ["zestes.js", "zestes.css"],
+  "web_accessible_resources": ["zestes.js", "zestes.css", "img/logo.png", "img/ariane.png"],
   "manifest_version": 2
 }
