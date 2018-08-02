@@ -53,3 +53,10 @@ article {
 	text-align: justify;
 	hyphens: auto;
 }
+pre {
+	margin: 8px 4px 8px 16px;
+	padding: 6px;
+	padding-left: 8px;
+	border: 1px solid #999;
+	border-left: 4px solid #222;
+}

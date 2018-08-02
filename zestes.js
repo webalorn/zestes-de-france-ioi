@@ -1,22 +1,6 @@
 let isConnected = false;
 let username = "";
 
-function updateQueryStringParam(key, value) {
-	var baseUrl = [location.protocol, '//', location.host, location.pathname].join(''),
-		urlQueryString = document.location.search,
-		newParam = key + '=' + value,
-		params = '?' + newParam;
-	if (urlQueryString) {
-		keyRegex = new RegExp('([\?&])' + key + '[^&]*');
-		if (urlQueryString.match(keyRegex) !== null) {
-			params = urlQueryString.replace(keyRegex, "$1" + newParam);
-		} else {
-			params = urlQueryString + '&' + newParam;
-		}
-	}
-	window.history.replaceState({}, "", baseUrl + params);
-}
-
 /*
 	Check if connected
 */

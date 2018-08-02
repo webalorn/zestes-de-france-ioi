@@ -973,6 +973,6 @@ label[for="taskSaved"] span {
     font-size: 0.8rem;
     display: none;
 }
-#taskSaved:checked + label span {
+label:hover span {
     display: block;
 }
