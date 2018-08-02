@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>ZFRIOI Popup</title>
+		<style>
+			body {
+				background: #19526c;
+				min-width: 250px;
+				margin: 0px;
+				border-bottom: 5px solid #f8ad32;
+				box-shadow: 0 5px 7px rgba(0,0,0,.3);
+				text-align: center;
+			}
+			#menu {
+				list-style-type: none;
+				padding: 0px;
+			}
+			#menu li {
+			    margin: 0px;
+			}
+			#menu li:nth-child(odd) {
+			    background-color: #084561;
+			}
+			#menu li a {
+				display: block;
+				padding: 0px;
+				padding-left: 10px;
+				height: 30px;
+				line-height: 30px;
+				color: white;
+				transition-property: opacity,background-color;
+				transition-duration: .15s;
+				cursor: pointer;
+				text-decoration: none;
+			}
+			#menu li a:hover {
+				background-color: #396a81;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="menu">
+			<li><a href="http://www.france-ioi.org/algo/chapters.php">Cours et problèmes</a></li>
+			<li><a href="http://www.france-ioi.org/forum/index.php">Forum d'entraide</a></li>
+		</ul>
+		<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="popup.js"></script>
+	</body>
+</html>

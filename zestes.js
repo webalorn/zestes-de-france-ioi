@@ -1,4 +1,5 @@
 let isConnected = false;
+let username = "";
 (function() {
 	function updateQueryStringParam(key, value) {
 	    var baseUrl = [location.protocol, '//', location.host, location.pathname].join(''),
@@ -14,6 +15,15 @@ let isConnected = false;
 	        }
 	    }
 	    window.history.replaceState({}, "", baseUrl + params);
+	}
+
+	/*
+		Check if connected
+	*/
+	if ($(".menuLogin .menuboxcontents > a").size()) { // Connected
+		isConnected = true;
+		username = $("label[for=\"menuLoginToggle\"]").text();
+		$(".menuLogin").css("display", "none");
 	}
 
 	/*
@@ -102,9 +112,9 @@ let isConnected = false;
 		$("#zesteLinkConnect").attr("href", $("#zesteLinkConnect").attr("href") + urlActu);
 		$("#zesteLinkDeco").attr("href", $("#zesteLinkDeco").attr("href") + urlActu);
 
-		if ($(".menuLogin .menuboxcontents > a").size()) { // Connected
-			isConnected = true;
+		if (isConnected) { // Connected
 			$(".zesteGuestOnly").css("display", "none");
+			$("#zesteMenuName").text(username);
 		} else { // Guest
 			$(".zesteConnectedOnly").css("display", "none");
 		}
@@ -129,10 +139,21 @@ let isConnected = false;
 	};
 
 	/*
+		Fiche publique
+	*/
+	var fichePseudo = $(".avatar-display tr + tr b");
+	if (fichePseudo.size() && fichePseudo.text() == username) {
+		console.log("Mine");
+		$("label[for=\"manageAuthToggle\"] + .indentedContent > a").each(function(id) {
+			$(".perso-fiche-edit").append($(this));
+		});
+	}
+
+	/*
 		Some other easter eggs
 	*/
 	$('img[src="http://data.france-ioi.org/Course/asso_presentation/simon_mauras.png"]').attr("src", zesteFiles['piscine']).css("width", "100px");
-	if ($(".perso-fiche-form #sLogin").size() && $("#sLogin").attr("value") == "mathias") {
+	if (fichePseudo.size() && fichePseudo.text() == "mathias") {
 		$(".avatar-display img").attr("src", zesteFiles["crown"]);
 	}
 	if ($("#homeContents").size()) {

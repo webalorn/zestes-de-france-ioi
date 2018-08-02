@@ -197,6 +197,7 @@ html[lang=fr] .menu-language-select {
 	right: 0px;
 	width: 100%;
 	display: none;
+	background: rgba(0, 0, 0, 0.2);
 }
 #zeste-menu-toogle:checked + #zesteSubMenu {
 	display: block;
@@ -226,6 +227,19 @@ html[lang=fr] .menu-language-select {
 }
 #zesteSubMenu ul li a:hover {
 	background-color: #396a81;
+}
+
+#zesteMenuName {
+	display: block;
+	width: 100%;
+	height: 35px;
+	line-height: 37px;
+	text-align: center;
+	border-bottom: 1px solid #274a5a;
+	background-color: #396a81;
+	text-align: center;
+	font-size: 0.9rem;
+	color: white;
 }
 
 
@@ -260,7 +274,7 @@ main, body {
 	border: none;
 	color: #424242;
 	color: black;
-	padding: 0px;
+	padding-bottom: 0px;
 }
 .bottomBackground {
 	display: none;
@@ -545,6 +559,7 @@ input[name="bShow"]:hover {
 }
 .perso-fiche-edit a {
 	display: inline-block;
+	margin: 3px 10px;
 }
 .perso-details-table span {
 	color: #4d4d4d;
