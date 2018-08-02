@@ -5,6 +5,8 @@ let zesteFiles = {
 	"piscine" : "img/piscine.jpg",
 	"crown" : "img/crown.png",
 	"menu_template" : "html/menu.html",
+	"offline_off" : "img/offline_off.png",
+	"offline_on": "img/offline_on.png",
 };
 for (let name in zesteFiles) {
 	zesteFiles[name] = chrome.extension.getURL(zesteFiles[name]);
@@ -59,7 +61,7 @@ if (document.location.pathname == "/algo/task.php" && $("#task-tabs").length) {
 		.end()  //again go back to selected element
 		.text();
 
-	var savedDom = $('<label for="taskSaved"></label><input type="checkbox" id="taskSaved" />');
+	var savedDom = $('<input type="checkbox" id="taskSaved" /><label for="taskSaved"><div></div><span>Sauvegarder le sujet hors-ligne</span></label>');
 	$(".links-box-middle + td").prepend(savedDom);
 
 	$("#taskSaved").change(function() {

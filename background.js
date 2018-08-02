@@ -1,8 +1,13 @@
 var offlineTasks = {
+	"getTaskList":function (callback) {
+		chrome.storage.local.get(["tasksList"], function(liste) {
+			liste = liste["tasksList"] || [];
+			callback(liste);
+		});
+	}
 	"is_saved": function (id, callback) {
 		var key = "task_" + id;
 		chrome.storage.local.get([key], function(result) {
-			console.log("GET", result);
 			result = result[key];
 			callback(result && result != undefined);
 		});
@@ -14,13 +19,32 @@ var offlineTasks = {
 		});
 	},
 	"saveTask": function (id, content, callback) {
-		var key = "task_" + id;
-		var setRequest = {};
-		setRequest[key] = content;
-		chrome.storage.local.set(setRequest, callback);
+		this.getTaskList(function(liste) {
+			if (liste.indexOf(id) == -1) {
+				liste.push(id);
+			}
+			var key = "task_" + id;
+			var setRequest = {};
+			setRequest[key] = content;
+			chrome.storage.local.set(setRequest, function() {
+				chrome.storage.local.set({"tasksList" : liste}, function () {
+					callback();
+				});
+			});
+		});
 	},
 	"forgetTask": function (id, callback) {
-		chrome.storage.local.remove(["task_" + id], callback);
+		this.getTaskList(function(liste) {
+			var liste2 = []
+			for (var i in liste) {
+				if (liste[i] != id) {
+					liste2.push(liste[i]);
+				}
+			}
+			chrome.storage.local.set({"tasksList" : liste2}, function() {
+				chrome.storage.local.remove(["task_" + id], callback);
+			});
+		});
 	},
 };
 
@@ -47,7 +71,6 @@ chrome.runtime.onMessage.addListener(
 	function(request, sender, sendResponse) {
 		if (sender.tab) {
 			var url = sender.tab.url;
-			console.log("request: ", request);
 			if (request.req == "on_task") {
 				onTask(request, sender, sendResponse);
 			} else if (request.req == "save_task") {

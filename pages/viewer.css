@@ -1,0 +1,55 @@
+body {
+	margin: 0px;
+	background: #f7f7f7;
+}
+main {
+	display: flex;
+	height: 100%;
+	font-size: 1.1rem;
+	color: #424242;
+}
+h1, h2 {
+	color: #084561;
+	border-bottom: 1px solid #f8ad32;
+	font-size: 1.5rem;
+	text-align: center;
+}
+
+aside {
+	background: #f0f0f0;
+	height: 100%;
+	width: 330px;
+	max-width: 50%;
+}
+aside ul {
+	padding: 0px;
+	list-style-type: none;
+}
+aside ul li {
+	color: #0079b2;
+	padding: 0px 20px;
+	display: block;
+	height: 35px;
+	line-height: 35px;
+	overflow: hidden;
+	text-align: center;
+	cursor: pointer;
+}
+aside ul li:hover {
+	background: white;
+}
+article {
+	height: 100%;
+	overflow: scroll;
+	flex: 1;
+}
+#task {
+	max-width: 800px;
+	overflow: scroll;
+	margin: auto;
+	padding: 20px 0px;
+}
+#task-content {
+	text-align: justify;
+	hyphens: auto;
+}
