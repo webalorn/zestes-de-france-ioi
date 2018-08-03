@@ -19,7 +19,7 @@ aside {
 	background: #f0f0f0;
 	height: 100%;
 	width: 330px;
-	max-width: 50%;
+	max-width: 40%;
 }
 aside ul {
 	padding: 0px;
@@ -40,18 +40,19 @@ aside ul li:hover {
 }
 article {
 	height: 100%;
-	overflow: scroll;
+	overflow: auto;
 	flex: 1;
 }
 #task {
 	max-width: 800px;
-	overflow: scroll;
+	overflow: auto;
 	margin: auto;
 	padding: 20px 0px;
 }
 #task-content {
 	text-align: justify;
 	hyphens: auto;
+	padding: 0px 25px;
 }
 pre {
 	margin: 8px 4px 8px 16px;

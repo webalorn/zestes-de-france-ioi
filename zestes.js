@@ -1,3 +1,19 @@
+function updateQueryStringParam(key, value) {
+	var baseUrl = [location.protocol, '//', location.host, location.pathname].join(''),
+		urlQueryString = document.location.search,
+		newParam = key + '=' + value,
+		params = '?' + newParam;
+	if (urlQueryString) {
+		keyRegex = new RegExp('([\?&])' + key + '[^&]*');
+		if (urlQueryString.match(keyRegex) !== null) {
+			params = urlQueryString.replace(keyRegex, "$1" + newParam);
+		} else {
+			params = urlQueryString + '&' + newParam;
+		}
+	}
+	window.history.replaceState({}, "", baseUrl + params);
+}
+
 let isConnected = false;
 let username = "";
 
@@ -144,6 +160,8 @@ if (fichePseudo.size() && fichePseudo.text() == "mathias") {
 }
 if ($("#homeContents").size()) {
 	$("#homeContents").html($("#homeContents").html().replace(/Rémy Kimbrough/g,'Flamby'));
+	var the_game = $("<h4>THE GAME</h4>").css("color", "transparent").css("font-size", "2rem").css("text-align", "center");
+	$(".contentsbox").append(the_game);
 }
 $(".avatar-display td").each(function(id) {
 	var el = $(this);
@@ -151,3 +169,9 @@ $(".avatar-display td").each(function(id) {
 		el.html("<strong>WHAT ???</strong>")
 	}
 });
+$(".classement_row_data td").each(function(id) {
+	var el = $(this);
+	if (el.text() == "2042") {
+		el.css("text-decoration", "underline");
+	}
+})

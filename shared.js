@@ -24,42 +24,72 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
+function transformTaskDom(taskDom, callback) {
+	var selector = taskDom.find("img[src^=http]");
+	if (selector.length) {
+		var el = selector.first();
+
+		function toDataURL(url) {
+			var xhr = new XMLHttpRequest();
+			xhr.onload = function() {
+				var reader = new FileReader();
+				reader.onloadend = function() {
+					el.attr("src", reader.result);
+					transformTaskDom(taskDom, callback);
+				}
+				reader.readAsDataURL(xhr.response);
+			};
+			xhr.open('GET', url);
+			xhr.responseType = 'blob';
+			xhr.send();
+		}
+		toDataURL(el.attr("src"));
+	} else {
+		callback(taskDom.html());
+	}
+}
+
+function transformTask(taskHtml, callback) {
+	transformTaskDom($(taskHtml), callback);
+}
+
 var offlineTasks = {
-	"getTaskList":function (callback) {
+	getTaskList: function (callback) {
 		chrome.storage.local.get(["tasksList"], function(liste) {
 			liste = liste["tasksList"] || [];
 			callback(liste);
 		});
 	},
-	"is_saved": function (id, callback) {
+	is_saved: function (id, callback) {
 		var key = "task_" + id;
 		chrome.storage.local.get([key], function(result) {
 			result = result[key];
 			callback(result && result != undefined);
 		});
 	},
-	"getTask": function (id, callback) {
+	getTask: function (id, callback) {
 		var key = "task_" + id;
 		chrome.storage.local.get([key], function(result) {
 			callback(result[key]);
 		});
 	},
-	"saveTask": function (id, content, callback) {
+	saveTask: function (id, content, callback) {
 		this.getTaskList(function(liste) {
-			if (liste.indexOf(id) == -1) {
-				liste.push(id);
-			}
-			var key = "task_" + id;
-			var setRequest = {};
-			setRequest[key] = content;
-			chrome.storage.local.set(setRequest, function() {
-				chrome.storage.local.set({"tasksList" : liste}, function () {
-					callback();
+			transformTask(content.content, function(newContent) {
+				content.content = newContent;
+				if (liste.indexOf(id) == -1) {
+					liste.push(id);
+				}
+				var key = "task_" + id;
+				var setRequest = {};
+				setRequest[key] = content;
+				chrome.storage.local.set(setRequest, function() {
+					chrome.storage.local.set({"tasksList" : liste}, callback);
 				});
 			});
 		});
 	},
-	"forgetTask": function (id, callback) {
+	forgetTask: function (id, callback) {
 		this.getTaskList(function(liste) {
 			var liste2 = []
 			for (var i in liste) {

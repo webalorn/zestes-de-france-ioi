@@ -2,7 +2,7 @@
   "name": "Zestes de France-IOI",
   "description": "Améliore l'interface de France-IOI, dans un style inspiré de zestedesavoir.com",
   "version": "1.0",
-  "permissions": ["tabs", "http://www.france-ioi.org/*", "activeTab", "storage", "unlimitedStorage"],
+  "permissions": ["tabs", "http://www.france-ioi.org/", "http://data.france-ioi.org/", "activeTab", "storage", "unlimitedStorage"],
   "icons": {
     "16": "img/icon16.png",
     "32": "img/icon32.png",
@@ -21,7 +21,7 @@
     }
   ],
   "background": {
-    "scripts": ["shared.js", "background.js"],
+    "scripts": ["jquery-3.3.1.min.js", "shared.js", "background.js"],
     "persistent": false
   },
   "web_accessible_resources": ["zestes.js", "zestes.css", "img/*", "html/*", "pages/*"],
