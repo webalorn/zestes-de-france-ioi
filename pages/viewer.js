@@ -45,6 +45,14 @@ function diplaySubjectList() {
 					displayTask(taskId);
 				});
 				$("aside ul").append(el);
+				var img = $('<img src="/img/delete.svg" />').click(function() {
+					if (confirm("Voulez vous vraiment supprimer le sujet \"" + task.title + "\" ?")) {
+						offlineTasks.forgetTask(taskId);
+						el.remove();
+					}
+					return false;
+				});
+				el.append(img);
 			});
 		}
 	});

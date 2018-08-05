@@ -44,6 +44,13 @@ function setTaskSavedState(state) {
 }
 
 if (document.location.pathname == "/algo/task.php" && $("#task-tabs").length) {
+	var taskContent = $("#task").html();
+	var taskTitle = $("#heading-link-box .direction-box h1").clone()    //clone the element
+			.children() //select all the children
+			.remove()   //remove all the children
+			.end()  //again go back to selected element
+			.text();
+
 	var variables = $("script[src=\"../ext/jquery/jquery.blockUI.js\"] + script").text();
 	eval(variables);
 	var req = {
@@ -51,18 +58,15 @@ if (document.location.pathname == "/algo/task.php" && $("#task-tabs").length) {
 		"task": idTask,
 		"chapter": idChapter,
 	}
-	chrome.runtime.sendMessage(req);
-
-	req.content = $("#task").html();
-	req.req = "save_task";
-	req.title = $("#heading-link-box .direction-box h1").clone()    //clone the element
-		.children() //select all the children
-		.remove()   //remove all the children
-		.end()  //again go back to selected element
-		.text();
 
 	var savedDom = $('<input type="checkbox" id="taskSaved" /><label for="taskSaved"><div></div><span>Sauvegarder le sujet hors-ligne</span></label>');
 	$(".links-box-middle + td").prepend(savedDom);
+
+	chrome.runtime.sendMessage(req);
+
+	req.content = taskContent;
+	req.req = "save_task";
+	req.title = taskTitle;
 
 	$("#taskSaved").change(function() {
 		var state = $(this).prop('checked');
@@ -74,6 +78,15 @@ if (document.location.pathname == "/algo/task.php" && $("#task-tabs").length) {
 				"task": req.task,
 			});
 		}
+	});
+
+	$(window).focus(function(e) {
+		var req2 = {
+			"req": "on_task",
+			"task": idTask,
+			"chapter": idChapter,
+		}
+		chrome.runtime.sendMessage(req2);
 	});
 }
 

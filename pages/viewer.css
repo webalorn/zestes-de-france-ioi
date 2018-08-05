@@ -27,16 +27,38 @@ aside ul {
 }
 aside ul li {
 	color: #0079b2;
-	padding: 0px 20px;
+	padding: 0px 25px;
 	display: block;
 	height: 35px;
 	line-height: 35px;
 	overflow: hidden;
 	text-align: center;
 	cursor: pointer;
+	position: relative;
 }
 aside ul li:hover {
 	background: white;
+}
+
+aside ul li img {
+	width: 20px;
+	height: 20px;
+	display: none;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	padding: 7px;
+	cursor: pointer;
+	opacity: 0.5;
+}
+aside ul li:hover img {
+	display: inline-block;
+}
+aside ul li img:not(:hover) {
+	filter: grayscale(100%);
+}
+aside ul li img:hover {
+	opacity: 1;
 }
 article {
 	height: 100%;

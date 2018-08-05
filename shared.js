@@ -64,7 +64,7 @@ var offlineTasks = {
 		var key = "task_" + id;
 		chrome.storage.local.get([key], function(result) {
 			result = result[key];
-			callback(result && result != undefined);
+			callback(result != null && result != undefined);
 		});
 	},
 	getTask: function (id, callback) {
