@@ -1,3 +1,5 @@
+var easterEggs = false;
+
 function updateQueryStringParam(key, value) {
 	var baseUrl = [location.protocol, '//', location.host, location.pathname].join(''),
 		urlQueryString = document.location.search,
@@ -154,21 +156,25 @@ if (fichePseudo.size() && fichePseudo.text() == username) {
 /*
 	Some other easter eggs
 */
-$('img[src="http://data.france-ioi.org/Course/asso_presentation/simon_mauras.png"]').attr("src", zesteFiles['piscine']).css("width", "100px");
-if (fichePseudo.size() && fichePseudo.text() == "mathias") {
-	$(".avatar-display img").attr("src", zesteFiles["crown"]);
+if (easterEggs) {
+	$('img[src="http://data.france-ioi.org/Course/asso_presentation/simon_mauras.png"]').attr("src", zesteFiles['piscine']).css("width", "100px");
+	if (fichePseudo.size() && fichePseudo.text() == "mathias") {
+		$(".avatar-display img").attr("src", zesteFiles["crown"]);
+	}
+	$(".avatar-display td").each(function(id) {
+		var el = $(this);
+		if (el.text() == "niveau 10") {
+			el.html("<strong>WHAT ???</strong>")
+		}
+	});
 }
 if ($("#homeContents").size()) {
-	$("#homeContents").html($("#homeContents").html().replace(/Rémy Kimbrough/g,'Flamby'));
+	if (easterEggs) {
+		$("#homeContents").html($("#homeContents").html().replace(/Rémy Kimbrough/g,'Flamby'));
+	}
 	var the_game = $("<h4>THE GAME</h4>").css("color", "transparent").css("font-size", "2rem").css("text-align", "center");
 	$(".contentsbox").append(the_game);
 }
-$(".avatar-display td").each(function(id) {
-	var el = $(this);
-	if (el.text() == "niveau 10") {
-		el.html("<strong>WHAT ???</strong>")
-	}
-});
 $(".classement_row_data td").each(function(id) {
 	var el = $(this);
 	if (el.text() == "2042") {

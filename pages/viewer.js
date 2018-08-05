@@ -37,7 +37,7 @@ function diplaySubjectList() {
 			return false;
 		}
 		lastUpdateList = liste;
-		$("aside ul").children().remove();
+		var children = $("aside ul").children();
 		for (let i in liste) {
 			let taskId = liste[i];
 			getTask(taskId, function(task) {
@@ -47,14 +47,16 @@ function diplaySubjectList() {
 				$("aside ul").append(el);
 				var img = $('<img src="/img/delete.svg" />').click(function() {
 					if (confirm("Voulez vous vraiment supprimer le sujet \"" + task.title + "\" ?")) {
-						offlineTasks.forgetTask(taskId);
-						el.remove();
+						offlineTasks.forgetTask(taskId, function() {
+							diplaySubjectList();
+						});
 					}
 					return false;
 				});
 				el.append(img);
 			});
 		}
+		children.remove();
 	});
 }
 diplaySubjectList();
@@ -65,7 +67,3 @@ if (getParameterByName("task")) {
 $(window).focus(function(e) {
     diplaySubjectList();
 });
-
-// TODO: refresh / Go to task on france-ioi
-// TODO: sort tasks by date
-// TODO: remove subject from viewer
