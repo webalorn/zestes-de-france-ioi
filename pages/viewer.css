@@ -48,6 +48,7 @@ article {
 	overflow: auto;
 	margin: auto;
 	padding: 20px 0px;
+	text-align: center;
 }
 #task-content {
 	text-align: justify;
@@ -60,4 +61,33 @@ pre {
 	padding-left: 8px;
 	border: 1px solid #999;
 	border-left: 4px solid #222;
+}
+
+button, input[type=submit], input[type=button] {
+	background: #396980;
+	padding: 5px 10px!important;
+	margin: 0px;
+	border: none;
+	color: white!important;
+	font-size: 0.875rem;
+    border-bottom: 1px solid #396a81;
+	
+	-webkit-transition-property: color,background,border;
+    transition-property: color,background,border;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: .15s;
+    transition-duration: .15s;
+}
+button:hover, input[type=submit]:hover, input[type=button]:hover {
+	cursor: pointer;
+	background: #fff;
+    color: #396a81!important;
+}
+button:focus, input[type=submit]:focus, input[type=button]:focus {
+	outline: none;
+}
+#taskLink {
+	display: none;
+	margin-top: 30px;
 }

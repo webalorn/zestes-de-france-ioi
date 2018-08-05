@@ -12,6 +12,9 @@ function displayTask(id) {
 	getTask(id, function(task) {
 		$("#task > h1").text(task.title);
 		$("#task-content").html(task.content);
+		$("#taskLink").off().click(function() {
+			chrome.tabs.create({url: 'http://www.france-ioi.org/algo/task.php?idChapter=' + task.chapter + '&idTask=' + id});
+		}).css("display", "inline-block");
 	});
 }
 

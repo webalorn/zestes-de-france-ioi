@@ -710,6 +710,9 @@ h2.contentsbox-subtitle {
 .trChapter:hover {
 	border-left-color: #1088bf;
 }
+.chapter-subtasks {
+	border-left: 1px solid #ccc;
+}
 
 /*
 	Tags
