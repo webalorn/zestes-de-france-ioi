@@ -164,7 +164,7 @@ if (easterEggs) {
 	$(".avatar-display td").each(function(id) {
 		var el = $(this);
 		if (el.text() == "niveau 10") {
-			el.html("<strong>WHAT ???</strong>")
+			el.html("<strong>WHAT ???</strong>");
 		}
 	});
 }
@@ -180,4 +180,31 @@ $(".classement_row_data td").each(function(id) {
 	if (el.text() == "2042") {
 		el.css("text-decoration", "underline");
 	}
-})
+});
+
+/*
+	Editor
+*/
+$("#task").append('<div id="zesteEditor" style="width:800px;height:600px;border:1px solid grey"></div>');
+
+require.config({ paths: { 'vs': zesteFiles['editor'] + '/min/vs' }});
+
+window.MonacoEnvironment = {
+	getWorkerUrl: function(workerId, label) {
+		return `data:text/javascript;charset=utf-8,${encodeURIComponent(`
+			self.MonacoEnvironment = {
+				baseUrl: '${zesteFiles['editor']}/min'
+			};
+			importScripts('${zesteFiles['editor']}/min/vs/base/worker/workerMain.js');`
+		)}`;
+	}
+};
+
+require(['vs/editor/editor.main'], function() {
+	var editor = monaco.editor.create(document.getElementById('zesteEditor'), {
+		value: [
+			'print(42)'
+		].join('\n'),
+		language: 'python'
+	});
+});

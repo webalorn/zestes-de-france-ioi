@@ -24,6 +24,6 @@
     "scripts": ["jquery-3.3.1.min.js", "shared.js", "background.js"],
     "persistent": false
   },
-  "web_accessible_resources": ["zestes.js", "zestes.css", "img/*", "html/*", "pages/*", "node_modules/*"],
+  "web_accessible_resources": ["zestes.js", "zestes.css", "img/*", "html/*", "pages/*", "monaco-editor/*"],
   "manifest_version": 2
 }

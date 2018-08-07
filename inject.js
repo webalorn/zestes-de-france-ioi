@@ -7,6 +7,7 @@ let zesteFiles = {
 	"menu_template" : "html/menu.html",
 	"offline_off" : "img/offline_off.png",
 	"offline_on": "img/offline_on.png",
+	"editor": "monaco-editor",
 };
 for (let name in zesteFiles) {
 	zesteFiles[name] = chrome.extension.getURL(zesteFiles[name]);
@@ -22,6 +23,12 @@ scriptFilesUrl.textContent = scriptCode;
 let body = document.getElementsByTagName('body')[0];
 let link = document.createElement('link');
 let script = document.createElement('script');
+
+if (document.location.pathname == "/algo/task.php" && $("#task-tabs").length) {
+	let scriptEditorLoader = document.createElement('script');
+	scriptEditorLoader.src = chrome.extension.getURL('monaco-editor/min/vs/loader.js');
+	body.appendChild(scriptEditorLoader);
+}
 
 let linkPath = chrome.extension.getURL('zestes.css');
 let scriptPath = chrome.extension.getURL('zestes.js');
