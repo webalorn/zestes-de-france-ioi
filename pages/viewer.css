@@ -8,7 +8,7 @@ main {
 	font-size: 1.1rem;
 	color: #424242;
 }
-h1, h2 {
+.zh1, .zh2 {
 	color: #084561;
 	border-bottom: 1px solid #f8ad32;
 	font-size: 1.5rem;
