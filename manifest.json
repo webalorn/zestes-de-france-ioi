@@ -1,7 +1,7 @@
 {
   "name": "Zestes de France-IOI",
   "description": "Améliore l'interface de France-IOI, dans un style inspiré de zestedesavoir.com, et permet d'enregistrer des sujets hors-ligne",
-  "version": "1.0",
+  "version": "1.0.1",
   "permissions": ["tabs", "http://www.france-ioi.org/", "http://data.france-ioi.org/", "activeTab", "storage", "unlimitedStorage"],
   "icons": {
     "16": "img/icon16.png",
@@ -10,6 +10,7 @@
     "128": "img/icon128.png"
   },
   "browser_action": {
+    "default_icon": "img/icon32.png",
     "default_title": "Zestes de France-IOI",
     "default_popup": "pages/popup.html"
   },
@@ -25,5 +26,10 @@
     "persistent": false
   },
   "web_accessible_resources": ["zestes.js", "zestes.css", "img/*", "html/*", "pages/*", "node_modules/*"],
-  "manifest_version": 2
+  "manifest_version": 2,
+  "applications": {
+    "gecko": {
+      "id": "zeste@france-ioi.org"
+    }
+  }
 }

@@ -1,6 +1,7 @@
 body {
 	margin: 0px;
 	background: #f7f7f7;
+	font-family: "Noto Sans", sans-serif;
 }
 main {
 	display: flex;

@@ -25,7 +25,9 @@ let username = "";
 if ($(".menuLogin .menuboxcontents > a").size()) { // Connected
 	isConnected = true;
 	username = $("label[for=\"menuLoginToggle\"]").text();
-	$(".menuLogin").css("display", "none");
+	if ($("html").attr("lang") == "fr") {
+		$(".menuLogin").css("display", "none");
+	}
 }
 
 /*
