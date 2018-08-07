@@ -233,13 +233,18 @@ html[lang=fr] .menu-language-select {
 	display: block;
 	width: 100%;
 	height: 35px;
-	line-height: 37px;
-	text-align: center;
 	border-bottom: 1px solid #274a5a;
 	background-color: #396a81;
-	text-align: center;
+}
+#zesteMenuName a {
+	display: block;
+	width: 100%;
+	height: 35px;
+	line-height: 37px;
 	font-size: 0.9rem;
 	color: white;
+	text-align: center;
+	padding: 0px;
 }
 
 

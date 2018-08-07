@@ -118,7 +118,7 @@ $.get(zesteFiles["menu_template"], function(data) {
 
 	if (isConnected) { // Connected
 		$(".zesteGuestOnly").css("display", "none");
-		$("#zesteMenuName").text(username);
+		$("#zesteMenuName a").text(username);
 	} else { // Guest
 		$(".zesteConnectedOnly").css("display", "none");
 	}
