@@ -31,7 +31,7 @@ if ($(".menuLogin .menuboxcontents > a").size()) { // Connected
 }
 
 /*
-	Change footer location and set page min-height
+	Change footer location, set page min-height and column size
 */
 var footer = document.getElementById("return-link-box");
 if (footer) {
@@ -44,6 +44,9 @@ if (footer) {
 	$("main").css("min-height", height);
 	$("#return-link-box").css("display", "block");
 }
+var zColH = Math.max($(".menuSitemap").height(), $(".menuCommunity").height());
+$(".menuSitemap").height(zColH);
+$(".menuCommunity").height(zColH);
 
 /*
 	Add css classes
@@ -77,6 +80,13 @@ function changeImages() {
 	for (var url in srcToNewImage) {
 		$("img[src=\"" + url + "\"]").attr("src", srcToNewImage[url]);
 	}
+
+	$(".emoticon, .emoticonsList img").each(function(id) {
+		var img = $(this);
+		var paths = img.attr("src").split("/");
+		var name = paths[paths.length-1];
+		img.attr("src", zesteFiles['emojis'] + "/" + name).css("margin", "0px 2px");
+	});
 }
 changeImages();
 
@@ -132,6 +142,15 @@ $.get(zesteFiles["menu_template"], function(data) {
 		$("#zesteLinkDoc").css("display", "none");
 	}
 });
+
+/*
+	Timer
+*/
+let timerEl = $("#timeRemaining");
+if (timerEl.length) {
+	$(".headerbox").prepend(timerEl);
+	$(".banner").css("display", "none");
+}
 
 /*
 	Overload jQuery get method to update new content

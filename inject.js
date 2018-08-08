@@ -7,6 +7,7 @@ let zesteFiles = {
 	"menu_template" : "html/menu.html",
 	"offline_off" : "img/offline_off.png",
 	"offline_on": "img/offline_on.png",
+	"emojis": "img/emojis",
 };
 for (let name in zesteFiles) {
 	zesteFiles[name] = chrome.extension.getURL(zesteFiles[name]);
