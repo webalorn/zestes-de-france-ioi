@@ -5,6 +5,7 @@ let zesteFiles = {
 	"piscine" : "img/piscine.jpg",
 	"crown" : "img/crown.png",
 	"menu_template" : "html/menu.html",
+	"formatBar_template" : "html/formatBar.html",
 	"offline_off" : "img/offline_off.png",
 	"offline_on": "img/offline_on.png",
 	"emojis": "img/emojis",

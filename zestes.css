@@ -309,7 +309,7 @@ main a:link, main a:visited {
 	border: none;
 }
 
-button, input[type=submit], input[type=button], .perso-fiche-edit a, #templatesBlock > label > span {
+button, input[type=submit], input[type=button], .perso-fiche-edit a, #templatesBlock > label > span, .thread-message form > a {
 	background: #396980;
 	padding: 5px 10px!important;
 	margin: 0px;
@@ -325,12 +325,12 @@ button, input[type=submit], input[type=button], .perso-fiche-edit a, #templatesB
     -webkit-transition-duration: .15s;
     transition-duration: .15s;
 }
-button:hover, input[type=submit]:hover, input[type=button]:hover, .perso-fiche-edit a:hover, #templatesBlock > label > span:hover {
+button:hover, input[type=submit]:hover, input[type=button]:hover, .perso-fiche-edit a:hover, #templatesBlock > label > span:hover, .thread-message form > a:hover {
 	cursor: pointer;
 	background: #fff;
     color: #396a81!important;
 }
-button:focus, input[type=submit]:focus, input[type=button]:focus, #templatesBlock > label > span:focus {
+button:focus, input[type=submit]:focus, input[type=button]:focus, #templatesBlock > label > span:focus, .thread-message form > a:focus {
 	outline: none;
 }
 input:not([type=submit]):not([type=button]) {
@@ -857,7 +857,6 @@ h2.contentsbox-subtitle {
 .edit-date {
 	font-style: italic;
 	color: #999!important;
-	padding-left: 8px;
 	margin-top: 25px!important;
 }
 .edit-date::before {
@@ -865,10 +864,117 @@ h2.contentsbox-subtitle {
 	background-repeat: no-repeat;
 	content: "";
 	display: inline-block;
-	background-size: cover;
-	width: 14px;
+	background-size: 14px;
+	width: 20px;
 	height: 14px;
 	opacity: 0.4;
+}
+.edit > a::before {
+	background: url("data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDUyOC44OTkgNTI4Ljg5OSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTI4Ljg5OSA1MjguODk5OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZD0iTTMyOC44ODMsODkuMTI1bDEwNy41OSwxMDcuNTg5bC0yNzIuMzQsMjcyLjM0TDU2LjYwNCwzNjEuNDY1TDMyOC44ODMsODkuMTI1eiBNNTE4LjExMyw2My4xNzdsLTQ3Ljk4MS00Ny45ODEgICBjLTE4LjU0My0xOC41NDMtNDguNjUzLTE4LjU0My02Ny4yNTksMGwtNDUuOTYxLDQ1Ljk2MWwxMDcuNTksMTA3LjU5bDUzLjYxMS01My42MTEgICBDNTMyLjQ5NSwxMDAuNzUzLDUzMi40OTUsNzcuNTU5LDUxOC4xMTMsNjMuMTc3eiBNMC4zLDUxMi42OWMtMS45NTgsOC44MTIsNS45OTgsMTYuNzA4LDE0LjgxMSwxNC41NjVsMTE5Ljg5MS0yOS4wNjkgICBMMjcuNDczLDM5MC41OTdMMC4zLDUxMi42OXoiIGZpbGw9IiMwMDAwMDAiLz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K");
+	background-repeat: no-repeat;
+	content: "";
+	display: inline-block;
+	background-size: 14px;
+	width: 20px;
+	height: 14px;
+	opacity: 0.4;
+}
+.edit > a {
+	display: inline-block;
+	color: #999!important;
+	border-bottom: 1px solid #d2d5d6;
+	height: 25px;
+	line-height: 25px;
+	padding: 0 5px;
+	text-decoration: none;
+}
+.edit > a:hover {
+	color: #555!important;
+	border-bottom-color: #0e77a8;
+}
+.edit > a:hover::before {
+	opacity: 0.8;
+}
+textarea.thread-write {
+	margin-bottom: 20px;
+}
+.thread-message form:not(.hide) textarea.thread-write {
+	width: 100%!important;
+	opacity: 0;
+}
+
+.emoticon {
+	margin: 0px 2px;
+}
+
+/*
+	Forum format bar
+*/
+.helpPostingFormatting {
+	display: none;
+}
+.zFormat {
+	font-size: 0px;
+}
+.zFormat > a {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	padding: 5px 13px;
+	border-bottom: 1px solid transparent;
+	position: relative;
+}
+.zFormat > a:hover {
+	border-bottom-color: #1088bf;
+	background-color: #eee;
+}
+.zFormat > a img {
+	width: 100%;
+	height: 100%;
+}
+.zFormatPopup {
+	position: absolute;
+	top: 28px;
+	left: 0px;
+	width: 180px;
+	background: white;
+	border: 1px solid #ccc;
+	padding: 6px;
+	display: none;
+	z-index: 5;
+	box-shadow: 0 2px 3px rgba(0,0,0,.2);
+	font-size: 15px;
+	cursor: default;
+}
+.zFormatPopup.emojiList {
+	text-align: center;
+}
+.zFormatPopup.emojiList img {
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	padding: 5px;
+	display: inline-block;
+}
+.zFormatPopup.emojiList img:hover {
+	background-color: #eee;
+}
+
+ul.zFormatPopup {
+	list-style-type: none;
+	color: black;
+	padding: 0px;
+}
+ul.zFormatPopup li {
+	margin: 0px;
+	height: 23px;
+	line-height: 23px;
+	padding: 0px 8px;
+	font-size: 0.9rem;
+	cursor: pointer;
+}
+ul.zFormatPopup li:hover {
+	background: #eee;
 }
 
 /*

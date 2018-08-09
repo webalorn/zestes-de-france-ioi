@@ -16,6 +16,30 @@ function updateQueryStringParam(key, value) {
 	window.history.replaceState({}, "", baseUrl + params);
 }
 
+function zInsertAtCursor(messageArea, startText, endText) {
+	if (messageArea instanceof jQuery) {
+		messageArea = messageArea[0];
+	}
+	if (endText == undefined) {
+		endText = '';
+	}
+	messageArea.focus();
+	if (document.selection) { // For IE
+		sel = document.selection.createRange();
+		sel.text = startText + endText;
+	} else if (messageArea.selectionStart || messageArea.selectionStart == '0') { // For Firefox, etc.
+		var startPos = messageArea.selectionStart;
+		var endPos = messageArea.selectionEnd;
+		var content = messageArea.value;
+		messageArea.value = content.substring(0, startPos) + startText + content.substring(startPos, endPos) + endText
+		+ content.substring(endPos, content.length);
+		messageArea.selectionStart = startPos + startText.length;
+		messageArea.selectionEnd = endPos + startText.length;
+	} else {
+		messageArea.value += startText + endText;
+	}
+}
+
 let isConnected = false;
 let username = "";
 
@@ -81,14 +105,13 @@ function changeImages() {
 		$("img[src=\"" + url + "\"]").attr("src", srcToNewImage[url]);
 	}
 
-	$(".emoticon, .emoticonsList img").each(function(id) {
+	$(".emoticon, .emoticonsList img, .emojiList img").each(function(id) {
 		var img = $(this);
 		var paths = img.attr("src").split("/");
 		var name = paths[paths.length-1];
-		img.attr("src", zesteFiles['emojis'] + "/" + name).css("margin", "0px 2px");
+		img.attr("src", zesteFiles['emojis'] + "/" + name);
 	});
 }
-changeImages();
 
 $("body > header img").attr("src", zesteFiles['logo']);
 
@@ -138,9 +161,78 @@ $.get(zesteFiles["menu_template"], function(data) {
 	if (sSelectedLanguage in docsUrls) {
 		$("#zesteLinkDoc").attr("href", docsUrls[sSelectedLanguage]);
 	} else {
-		console.log("Not found");
 		$("#zesteLinkDoc").css("display", "none");
 	}
+});
+
+/*
+	Create formatBar
+*/
+
+$.get(zesteFiles["formatBar_template"], function(formatBar) {
+	function createBar(textarea) {
+		var barre = $(formatBar);
+		barre.insertBefore(textarea);
+
+		// Popups
+		barre.find(".zFormatPopup").each(function(id) {
+			var popup = $(this);
+			popup.parent().click(function() {
+				if (popup.css("display") == "none") {
+					$(".zFormatPopup").css("display", "none");
+					popup.css("display", "block");
+				} else {
+					popup.css("display", "none");
+				}
+				return false;
+			});
+			popup.click(function(){return false;});
+			$(document).click(function(){
+				popup.css("display", "none");
+			});
+		});
+
+		// Emojis
+		barre.find('.emojiList img').each(function() {
+			var ascii = $(this).attr('alt');
+			$(this).click(function() {
+				zInsertAtCursor(textarea, '[' + ascii + ']');
+				$(this).parent().css("display", "none");
+			});
+		});
+
+		// Languages
+		barre.find(".langList li").each(function() {
+			var lang = $(this).attr('data-lang');
+			$(this).click(function() {
+				zInsertAtCursor(textarea, '\n<' + lang + '>\n', '\n</' + lang + '>\n');
+				$(this).parent().css("display", "none");
+			});
+		});
+
+		// Autres elements
+		barre.find(".zInsert").click(function() {
+			zInsertAtCursor(textarea,
+				$(this).attr("data-before").replace("\\n", "\n").replace("\\n", "\n"),
+				$(this).attr("data-after").replace("\\n", "\n").replace("\\n", "\n")
+			);
+			return false;
+		});
+		barre.find(".zInsertPrompt").click(function() {
+			var url = prompt($(this).attr("data-prompt"), $(this).attr("data-default"));
+			if (url) {
+				zInsertAtCursor(textarea,
+					$(this).attr("data-start").replace("\\n", "\n").replace("\\n", "\n") + url +
+					$(this).attr("data-end").replace("\\n", "\n").replace("\\n", "\n")
+				);
+			}
+			return false;
+		});
+	}
+	$(".thread-write").each(function() {
+		createBar($(this));
+	})
+	$(".zEmoji").attr("src", zesteFiles['emojis'] + "/emot-souriant.png");
 });
 
 /*
@@ -151,6 +243,8 @@ if (timerEl.length) {
 	$(".headerbox").prepend(timerEl);
 	$(".banner").css("display", "none");
 }
+
+changeImages();
 
 /*
 	Overload jQuery get method to update new content
@@ -164,11 +258,42 @@ $.get = function(url, callback) {
 };
 
 /*
+	Forum specifics
+*/
+
+if (previewMsg && previewMsg.length == 2) {
+	previewMsg = function (button, forEdit) {
+		var form = $(button).closest('form');
+		form.find('.messagePreview').html("…");
+		$.post($('.navigbox a:last').attr('href') + '&sView=preview' + (forEdit ? 'Edit' : ''), form.serialize(), function(result) {
+			form.find('.messagePreview').empty().append($(result).find('.thread-message' + (forEdit ? '-contents' : '')));
+			SyntaxHighlighter.highlight();
+			changeImages();
+		});
+	}
+	$(document).on('click', '.thread-message-details .edit', function() {
+		if (realTextarea) {
+			var realTextarea = $(".thread-message form:not(.hide) textarea");
+			floatingTextarea.width(realTextarea.width());
+		}
+	});
+} else if (previewMsg && previewMsg.length == 1) {
+	previewMsg = function (button) {
+		var form = $(button).closest('form');
+		form.find('.messagePreview').html("…");
+		$.post($(button).attr('data-url'), form.serialize(), function(result) {
+			form.find('.messagePreview').empty().append($(result).find('.thread-message'));
+			SyntaxHighlighter.highlight();
+			changeImages();
+		});
+	}
+}
+
+/*
 	Fiche publique
 */
 var fichePseudo = $(".avatar-display tr + tr b");
 if (fichePseudo.size() && fichePseudo.text() == username) {
-	console.log("Mine");
 	$("label[for=\"manageAuthToggle\"] + .indentedContent > a").each(function(id) {
 		$(".perso-fiche-edit").append($(this));
 	});
