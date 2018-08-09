@@ -165,6 +165,9 @@ $.get(zesteFiles["menu_template"], function(data) {
 	}
 });
 
+// Change images at the end
+changeImages();
+
 /*
 	Create formatBar
 */
@@ -233,6 +236,9 @@ $.get(zesteFiles["formatBar_template"], function(formatBar) {
 		createBar($(this));
 	})
 	$(".zEmoji").attr("src", zesteFiles['emojis'] + "/emot-souriant.png");
+	$(".emojiList img").each(function() {
+		$(this).attr("src", zesteFiles['emojis'] + "/" + $(this).attr("src"));
+	});
 });
 
 /*
@@ -243,8 +249,6 @@ if (timerEl.length) {
 	$(".headerbox").prepend(timerEl);
 	$(".banner").css("display", "none");
 }
-
-changeImages();
 
 /*
 	Overload jQuery get method to update new content
