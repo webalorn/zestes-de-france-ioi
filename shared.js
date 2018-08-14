@@ -103,3 +103,40 @@ var offlineTasks = {
 		});
 	},
 };
+
+var config = {
+	default: {
+		enable_text_editor: true,
+		enable_zeste: true,
+		enable_submissions: true,
+		enable_task_saver: true,
+		custom_emojis: true,
+	},
+	get: function(callback) {
+		var configObj = this;
+		chrome.storage.local.get(["config"], function(result) {
+			let cfg = result.config || {};
+			for (let key in configObj.default) {
+				if (!(key in cfg)) {
+					cfg[key] = configObj.default[key];
+				}
+			}
+			callback(cfg);
+		});
+	},
+	set: function(value, callback) {
+		chrome.storage.local.set({config: value}, callback);
+	},
+	getVal: function(key, callback) {
+		this.get(function(cfg) {
+			return cfg[key];
+		});
+	},
+	setVal: function(key, value, callback) {
+		var configObj = this;
+		this.get(function(cfg) {
+			cfg[key] = value;
+			configObj.set(cfg, callback);
+		});
+	},
+}

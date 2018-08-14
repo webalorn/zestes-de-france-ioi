@@ -1,0 +1,44 @@
+/*
+	Mode offline pour les sujets
+*/
+#taskSaved {
+	display: none;
+}
+label[for="taskSaved"] {
+	display: inline-block;
+	height: 32px;
+	width: 32px;
+	margin: 0px 10px;
+	cursor: pointer;
+	position: relative;
+}
+label[for="taskSaved"] div {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+#taskSaved:checked + label {
+	background: transparent;
+}
+#taskSaved:checked + label div {
+	display: block;
+}
+label[for="taskSaved"] span {
+	z-index: 8;
+	position: absolute;
+	left: -52px;
+	top: 37px;
+	width: 120px;
+	padding: 8px;
+    background-color: #396a81;
+    border-bottom: 3px solid #f8ad32;
+    cursor: default;
+    color: white;
+    text-align: center;
+    font-size: 0.8rem;
+    display: none;
+}
+label:hover span {
+    display: block;
+}

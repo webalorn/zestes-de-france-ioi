@@ -1,0 +1,21 @@
+/*
+	Soumissions
+*/
+.evaluation-result-success {
+	background: #AED581;
+}
+.evaluation-result-failure {
+	background: #EF9A9A;
+}
+.evaluation-result-perffail {
+	background: #B39DDB;
+}
+.evaluation-result-error {
+	background: #FFA726;
+}
+.evaluation-results-table pre {
+	background: white;
+}
+.first-different-char.highlighted {
+	background: #2196F3;
+}

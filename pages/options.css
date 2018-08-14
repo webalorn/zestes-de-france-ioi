@@ -1,0 +1,52 @@
+article {
+	max-width: 800px;
+	margin: auto;
+	padding: 20px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+.optionsList {
+	list-style-type: none;
+	display: block;
+	padding-left: 40px;
+	width: calc(100% - 40px);
+}
+.optionsList li {
+	margin-right: 10px;
+	padding-left: 10px;
+	line-height: 30px;
+	display: flex;
+	margin: 0px;
+	align-items: center;
+	flex-wrap: wrap;
+	position: relative;
+	color: #1E88E5;
+}
+.optionsList li label:hover::before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 30px;
+	background: white;
+	z-index: -1;
+}
+.optionsList li > input {
+	margin-right: 20px;
+}
+.optionsList li > input + label {
+	cursor: pointer;
+	display: inline-block;
+	flex: 1;
+	padding-left: 10px;
+}
+.optionsList li > input:not(:checked) + label {
+	color: #424242;
+}
+.optionsList li > input:not(:checked) + label + ul.optionsList li label:hover::before {
+	background: #E0E0E0;
+}
+.optionsList li > input:not(:checked) + label + ul.optionsList li > label {
+	color: #999;
+}

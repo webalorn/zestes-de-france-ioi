@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Options - Zestes de France-IOI</title>
+		<link type="text/css" rel="stylesheet" href="pages_shared.css">
+		<link type="text/css" rel="stylesheet" href="options.css">
+	</head>
+	<body>
+		<main>
+			<article>
+				<h1 class="zh1">Options</h1>
+				<ul class="optionsList">
+					<li>
+						<input type="checkbox" id="enable_zeste" data-cfg="enable_zeste" />
+						<label for="enable_zeste">Activer le style <em>Zestes de france-IOI</em></label>
+						<ul class="optionsList">
+							<li>
+								<input type="checkbox" id="custom_emojis" data-cfg="custom_emojis" />
+								<label for="custom_emojis">Emojis améliorés</label>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<input type="checkbox" id="enable_submissions" data-cfg="enable_submissions" />
+						<label for="enable_submissions">Couleurs alternatives pour les soumissions</label>
+					</li>
+					<li>
+						<input type="checkbox" id="enable_text_editor" data-cfg="enable_text_editor" />
+						<label for="enable_text_editor">Éditeur de texte enrichi pour le forum</label>
+					</li>
+					<li>
+						<input type="checkbox" id="enable_task_saver" data-cfg="enable_task_saver" />
+						<label for="enable_task_saver">Boutton de sauvegarde hors-ligne</label>
+					</li>
+				</ul>
+			</article>
+		</main>
+		<script type="text/javascript" src="../jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="../shared.js"></script>
+		<script type="text/javascript" src="options.js"></script>
+	</body>
+</html>

@@ -1,0 +1,98 @@
+html {
+	height: 100%;
+}
+body {
+	margin: 0px;
+	background: #f7f7f7;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 1.1rem;
+	color: #424242;
+	height: 100%;
+	display: block;
+}
+main {
+	display: flex;
+	height: 100%;
+}
+.zh1, .zh2 {
+	color: #084561;
+	border-bottom: 1px solid #f8ad32;
+	font-size: 1.5rem;
+	text-align: center;
+}
+
+aside {
+	background: #f0f0f0;
+	height: 100%;
+	width: 330px;
+	max-width: 40%;
+}
+aside ul {
+	padding: 0px;
+	list-style-type: none;
+}
+aside ul li {
+	color: #0079b2;
+	padding: 0px 25px;
+	display: block;
+	height: 35px;
+	line-height: 35px;
+	overflow: hidden;
+	text-align: center;
+	cursor: pointer;
+	position: relative;
+}
+aside ul li:hover {
+	background: white;
+}
+
+aside ul li img {
+	width: 20px;
+	height: 20px;
+	display: none;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	padding: 7px;
+	cursor: pointer;
+	opacity: 0.5;
+}
+aside ul li:hover img {
+	display: inline-block;
+}
+aside ul li img:not(:hover) {
+	filter: grayscale(100%);
+}
+aside ul li img:hover {
+	opacity: 1;
+}
+article {
+	height: 100%;
+	overflow: auto;
+	flex: 1;
+}
+
+button, input[type=submit], input[type=button] {
+	background: #396980;
+	padding: 5px 10px!important;
+	margin: 0px;
+	border: none;
+	color: white!important;
+	font-size: 0.875rem;
+    border-bottom: 1px solid #396a81;
+	
+	-webkit-transition-property: color,background,border;
+    transition-property: color,background,border;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: .15s;
+    transition-duration: .15s;
+}
+button:hover, input[type=submit]:hover, input[type=button]:hover {
+	cursor: pointer;
+	background: #fff;
+    color: #396a81!important;
+}
+button:focus, input[type=submit]:focus, input[type=button]:focus {
+	outline: none;
+}

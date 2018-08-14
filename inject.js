@@ -1,106 +1,108 @@
-let zesteFiles = {
-	"logo" : "img/logo.png",
-	"ariane" : "img/ariane.png",
-	"menu" : "img/menu.png",
-	"piscine" : "img/piscine.jpg",
-	"crown" : "img/crown.png",
-	"menu_template" : "html/menu.html",
-	"formatBar_template" : "html/formatBar.html",
-	"offline_off" : "img/offline_off.png",
-	"offline_on": "img/offline_on.png",
-	"emojis": "img/emojis",
-};
-for (let name in zesteFiles) {
-	zesteFiles[name] = chrome.extension.getURL(zesteFiles[name]);
-}
-
-let scriptCode = ['zesteFiles = ' + JSON.stringify(zesteFiles) + ';'].join('\n');
-
-let scriptFilesUrl = document.createElement('script');
-scriptFilesUrl.textContent = scriptCode;
-(document.head||document.documentElement).appendChild(scriptFilesUrl);
-
-
-let body = document.getElementsByTagName('body')[0];
-let link = document.createElement('link');
-let script = document.createElement('script');
-
-let linkPath = chrome.extension.getURL('zestes.css');
-let scriptPath = chrome.extension.getURL('zestes.js');
-
-link.rel = "stylesheet";
-link.type = "text/css";
-link.href = linkPath;
-
-script.src = scriptPath;
-
-body.appendChild(link);
-body.appendChild(script);
-
-/*
-	Offline subject view
-*/
-
-function setTaskSavedState(state) {
-	$("#taskSaved").prop("checked", state);
-}
-
-if (document.location.pathname == "/algo/task.php" && $("#task-tabs").length) {
-	var taskContent = $("#task").html();
-	var taskTitle = $("#heading-link-box .direction-box h1").clone()    //clone the element
-			.children() //select all the children
-			.remove()   //remove all the children
-			.end()  //again go back to selected element
-			.text();
-
-	var variables = $("script[src=\"../ext/jquery/jquery.blockUI.js\"] + script").text();
-	eval(variables);
-	var req = {
-		"req": "on_task",
-		"task": idTask,
-		"chapter": idChapter,
+function getZesteFilesJS() {
+	let zesteFiles = {
+		"logo" : "img/logo.png",
+		"ariane" : "img/ariane.png",
+		"menu" : "img/menu.png",
+		"piscine" : "img/piscine.jpg",
+		"crown" : "img/crown.png",
+		"menu_template" : "html/menu.html",
+		"formatBar_template" : "html/formatBar.html",
+		"offline_off" : "img/offline_off.png",
+		"offline_on": "img/offline_on.png",
+		"emojis": "img/emojis",
+	};
+	for (let name in zesteFiles) {
+		zesteFiles[name] = chrome.extension.getURL(zesteFiles[name]);
 	}
 
-	var savedDom = $('<input type="checkbox" id="taskSaved" /><label for="taskSaved"><div></div><span>Sauvegarder le sujet hors-ligne</span></label>');
-	$(".links-box-middle + td").prepend(savedDom);
-
-	chrome.runtime.sendMessage(req);
-
-	req.content = taskContent;
-	req.req = "save_task";
-	req.title = taskTitle;
-
-	$("#taskSaved").change(function() {
-		var state = $(this).prop('checked');
-		if (state) {
-			chrome.runtime.sendMessage(req);
-		} else {
-			chrome.runtime.sendMessage({
-				"req": "forget_task",
-				"task": req.task,
-			});
-		}
-	});
-
-	$(window).focus(function(e) {
-		var req2 = {
-			"req": "on_task",
-			"task": idTask,
-			"chapter": idChapter,
-		}
-		chrome.runtime.sendMessage(req2);
-	});
+	return ['zesteFiles = ' + JSON.stringify(zesteFiles) + ';'].join('\n');
+}
+let zConfig;
+function getZesteConfig() {
+	return ['zesteConfig = ' + JSON.stringify(zConfig) + ';'].join('\n');
 }
 
-/*
-	Message listner
-*/
+let zModules = [
+	{
+		name: "Zeste datas",
+		js: [getZesteFilesJS, getZesteConfig],
+	},
+	{
+		name: "Core module",
+		js: ["modules/core/core.js"],
+	},
+	{
+		name: "Website base changes",
+		js: ["modules/fixes/fixes.js"],
+	},
+	{
+		name: "Forum text-editor",
+		js: ["modules/text_editor/edit_bar.js"],
+		css: ["modules/text_editor/edit_bar.css"],
+		require: ["text_editor"],
+	},
+	{
+		name: "Zeste style",
+		js: ["modules/zeste_style/zestes.js"],
+		css: ["modules/zeste_style/zestes.css"],
+		require: ["zeste"],
+	},
+	{
+		name: "Submisions style",
+		css: ["modules/submissions/submissions.css"],
+		require: ["submissions"],
+	},
+	{
+		name: "Task saver button",
+		css: ["modules/task_saver/button.css"],
+		js: ["modules/task_saver/button.js"],
+		internal: [taskSaverInternal],
+		require: ["task_saver"],
+	},
+];
 
-chrome.runtime.onMessage.addListener(
-	function(request, sender, sendResponse) {
-		if (!sender.tab) {
-			if (request.req == "is_task_saved") {
-				setTaskSavedState(request.saved);
+config.get(function(configValues) {
+	zConfig = configValues;
+	let body = document.getElementsByTagName('body')[0];
+
+	for (let mod of zModules) {
+		function injectThisMod() {
+			if (mod.js) {
+				for (let scriptContent of mod.js) {
+					let scriptDomEl = document.createElement('script');
+					if (typeof scriptContent == "string") {
+						scriptDomEl.src = chrome.extension.getURL(scriptContent);
+					} else { // function
+						scriptDomEl.textContent = scriptContent();
+					}
+					body.appendChild(scriptDomEl);
+				}
+			}
+			if (mod.css) {
+				for (let cssContent of mod.css) {
+					let link = document.createElement('link');
+					link.rel = "stylesheet";
+					link.type = "text/css";
+					link.href = chrome.extension.getURL(cssContent);
+					body.appendChild(link);
+				}
+			}
+			if (mod.internal) {
+				for (let func of mod.internal) {
+					func();
+				}
 			}
 		}
-	});
+		let canInject = true;
+		if (mod.require) {
+			for (let condition of mod.require) {
+				if (!configValues["enable_" + condition]) {
+					canInject = false;
+				}
+			}
+		}
+		if (canInject) {
+			injectThisMod();
+		}
+	}
+});
