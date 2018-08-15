@@ -1,3 +1,9 @@
+if (isConnected) {
+	if ($("html").attr("lang") == "fr") {
+		$(".menuLogin").css("display", "none");
+	}
+}
+
 /*
 	Change footer location, set page min-height and column size
 */
