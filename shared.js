@@ -108,9 +108,12 @@ var config = {
 	default: {
 		enable_text_editor: true,
 		enable_zeste: true,
+		zeste_menu: true,
 		enable_submissions: true,
 		enable_task_saver: true,
 		custom_emojis: true,
+		enable_compact: false,
+		compact_rm_menus: true,
 	},
 	get: function(callback) {
 		var configObj = this;

@@ -1,0 +1,70 @@
+#timeRemaining {
+	font-size: 1.5rem;
+}
+.headerbox {
+	padding: 0px;
+}
+.contentsbox-title {
+	margin: 0px;
+	margin: auto;
+}
+#divSelectLangProg {
+	margin: 8px 0px;
+	font-size: 0px;
+}
+#divSelectLangProg > form {
+	font-size: 15px;
+}
+.headerbox {
+	border-width: 0px;
+}
+html[zeste] .navigbox {
+	-webkit-box-shadow: 0 0 2px rgba(0,0,0,.3);
+	box-shadow: 0 0 2px rgba(0,0,0,.3);
+}
+html[zeste] .menucol aside > label, html[zeste] .menucol aside > h1 {
+	margin-top: 5px;
+}
+html[zeste] .menucol aside {
+	padding-bottom: 0px;
+}
+#sLangProgDiv > label > span {
+	padding: 5px 10px;
+}
+.ui-tabs-nav li a {
+	padding: 0.6em 0.8em!important;
+}
+.menuLiensTabs .direction-link a {
+	padding: 0.6em 0.8em!important;
+}
+
+@media screen and (min-width: 1090px) {
+	html[compact="ultra"] .menucol {
+		position: fixed;
+		top: 60px;
+		right: 0px;
+		width: 198px;
+		height: calc(100% - 30px);
+		display: flex;
+		align-items: flex-end;
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+	html[compact="ultra"] .menucol > aside {
+		position: relative;
+		width: 160px;
+	}
+}
+#return-link-box {
+	display: none!important;
+}
+main {
+	min-height: 0px!important;
+}
+
+.classement_row_data td {
+	padding: 5px 8px;
+}
+.user-recent-sub tr td {
+	padding: 5px 8px;
+}

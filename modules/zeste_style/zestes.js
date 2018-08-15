@@ -1,12 +1,7 @@
-if (isConnected) {
-	if ($("html").attr("lang") == "fr") {
-		$(".menuLogin").css("display", "none");
-	}
-}
-
 /*
 	Change footer location, set page min-height and column size
 */
+$("html").attr("zeste", "true");
 var footer = document.getElementById("return-link-box");
 if (footer) {
 	document.body.appendChild(footer);
@@ -78,37 +73,44 @@ $("body > header img").attr("src", zesteFiles['logo']);
 /*
 	Create menu
 */
-var docsUrls = {
-	"C" : "https://en.cppreference.com/w/c",
-	"Cpp" : "https://en.cppreference.com/w/",
-	"Python" : "https://docs.python.org/fr/3/library/index.html",
-	"Pascal" : "https://www.freepascal.org/docs.var",
-	"OCaml" : "http://caml.inria.fr/pub/docs/manual-ocaml/",
-	"Java" : "https://docs.oracle.com/javase/10/docs/api/overview-summary.html",
-	"JavaScool": "https://bit.ly/IqT6zt",
-};
-
-$.get(zesteFiles["menu_template"], function(data) {
-	$("body > header.headerbox").append(data);
-	$("#zesteMenu > span img").attr("src", zesteFiles["menu"]);
-
-	urlActu = encodeURIComponent(window.location.href);
-	$("#zesteLinkConnect").attr("href", $("#zesteLinkConnect").attr("href") + urlActu);
-	$("#zesteLinkDeco").attr("href", $("#zesteLinkDeco").attr("href") + urlActu);
-
-	if (isConnected) { // Connected
-		$(".zesteGuestOnly").css("display", "none");
-		$("#zesteMenuName a").text(username);
-	} else { // Guest
-		$(".zesteConnectedOnly").css("display", "none");
+if (zesteConfig.zeste_menu && !zesteConfig.enable_compact) {
+	if (isConnected) {
+		if ($("html").attr("lang") == "fr") {
+			$(".menuLogin").css("display", "none");
+		}
 	}
+	var docsUrls = {
+		"C" : "https://en.cppreference.com/w/c",
+		"Cpp" : "https://en.cppreference.com/w/",
+		"Python" : "https://docs.python.org/fr/3/library/index.html",
+		"Pascal" : "https://www.freepascal.org/docs.var",
+		"OCaml" : "http://caml.inria.fr/pub/docs/manual-ocaml/",
+		"Java" : "https://docs.oracle.com/javase/10/docs/api/overview-summary.html",
+		"JavaScool": "https://bit.ly/IqT6zt",
+	};
 
-	if (sSelectedLanguage in docsUrls) {
-		$("#zesteLinkDoc").attr("href", docsUrls[sSelectedLanguage]);
-	} else {
-		$("#zesteLinkDoc").css("display", "none");
-	}
-});
+	$.get(zesteFiles["menu_template"], function(data) {
+		$("body > header.headerbox").append(data);
+		$("#zesteMenu > span img").attr("src", zesteFiles["menu"]);
+
+		urlActu = encodeURIComponent(window.location.href);
+		$("#zesteLinkConnect").attr("href", $("#zesteLinkConnect").attr("href") + urlActu);
+		$("#zesteLinkDeco").attr("href", $("#zesteLinkDeco").attr("href") + urlActu);
+
+		if (isConnected) { // Connected
+			$(".zesteGuestOnly").css("display", "none");
+			$("#zesteMenuName a").text(username);
+		} else { // Guest
+			$(".zesteConnectedOnly").css("display", "none");
+		}
+
+		if (sSelectedLanguage in docsUrls) {
+			$("#zesteLinkDoc").attr("href", docsUrls[sSelectedLanguage]);
+		} else {
+			$("#zesteLinkDoc").css("display", "none");
+		}
+	});
+}
 
 // Change images at the end
 changeImages();

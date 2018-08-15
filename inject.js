@@ -59,6 +59,12 @@ let zModules = [
 		internal: [taskSaverInternal],
 		require: ["task_saver"],
 	},
+	{
+		name: "Compact mode",
+		css: ["modules/compact/compact.css"],
+		js: ["modules/compact/compact.js"],
+		require: ["compact"],
+	},
 ];
 
 config.get(function(configValues) {
