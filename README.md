@@ -2,6 +2,10 @@
 
 Cette extension a pour but d'améliorer l'interface utilisateur de [France-IOI](http://www.france-ioi.org/) en changeant son style (via une feuille css) et en apportant quelques modifications en javascript.
 
+## Intaller l'extension
+- Sur chrome: [depuis le chrome web store](https://chrome.google.com/webstore/detail/zestes-de-france-ioi/cicodgkglkobbopicpidlbgeohjjjapc) 
+- Sur firefox: [depuis Firefox Add-ons](https://addons.mozilla.org/fr/firefox/addon/zestes-de-france-ioi/) 
+
 ## Fonctionalités
 
 - Amélioration du style du site, avec une apparence librement inspirée de celle de [Zeste de savoirs](https://zestedesavoir.com/).
