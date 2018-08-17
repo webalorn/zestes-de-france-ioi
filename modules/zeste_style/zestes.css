@@ -492,7 +492,7 @@ main h2 {
 	Page d'acceuil
 */
 .contentsbox-title {
-	margin-top: 12px;
+	margin-top: 12px !important;
 	color: #084561;
 	border-bottom: 1px solid #f8ad32;
 	margin-left: 0px;
