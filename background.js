@@ -3,7 +3,6 @@ function onTask(request, sender, sendResponse) {
 		chrome.tabs.sendMessage(sender.tab.id, {req: "is_task_saved", saved: is_saved});
 	});
 }
-
 function saveTask(request, sender, sendResponse) {
 	offlineTasks.saveTask(request.task, {
 		"task": request.task,
@@ -14,7 +13,19 @@ function saveTask(request, sender, sendResponse) {
 	});
 }
 function forgetTask(request, sender, sendResponse) {
-	offlineTasks.forgetTask(request.task)
+	offlineTasks.forgetTask(request.task);
+}
+
+function onUser(request, sender, sendResponse) {
+	usersFollowing.isFollowed(request.username, function(is_followed) {
+		chrome.tabs.sendMessage(sender.tab.id, {req: "is_user_followed", followed: is_followed});
+	});
+}
+function followUser(request, sender, sendResponse) {
+	usersFollowing.followUser(request.username);
+}
+function unfollowUser(request, sender, sendResponse) {
+	usersFollowing.unfollowUser(request.username);
 }
 
 chrome.runtime.onMessage.addListener(
@@ -27,6 +38,12 @@ chrome.runtime.onMessage.addListener(
 				saveTask(request, sender, sendResponse);
 			} else if (request.req == "forget_task") {
 				forgetTask(request);
+			} else if (request.req == "on_user") {
+				onUser(request, sender, sendResponse);
+			} else if (request.req == "follow_user") {
+				followUser(request, sender, sendResponse);
+			} else if (request.req == "unfollow_user") {
+				unfollowUser(request, sender, sendResponse);
 			}
 		}
 	});

@@ -74,6 +74,12 @@ function startInjection() {
 			js: ["modules/compact/compact.js"],
 			require: ["compact"],
 		},
+		{
+			name: "Follow users",
+			css: ["modules/follow/follow.css"],
+			internal: [followUsersInternal],
+			require: ["follow_users"],
+		},
 	];
 
 	config.get(function(configValues) {
@@ -101,6 +107,7 @@ function startInjection() {
 						link.type = "text/css";
 						link.href = chrome.extension.getURL(cssContent);
 						head.appendChild(link);
+						$(body).append($(link).clone());
 					}
 				}
 				if (mod.internal) {
@@ -122,7 +129,6 @@ function startInjection() {
 			}
 		}
 		$(function() {
-			console.log("rdm");
 			document.body.style.visibility = "visible";
 		});
 	});

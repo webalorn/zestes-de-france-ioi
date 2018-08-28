@@ -18,18 +18,6 @@ function displayTask(id) {
 	});
 }
 
-function listEq(l1, l2) {
-	if (l1.length != l2.length) {
-		return false;
-	}
-	for (var i in l1) {
-		if (l1[i] != l2[i]) {
-			return false;
-		}
-	}
-	return true;
-}
-
 function diplaySubjectList() {
 	chrome.storage.local.get(["tasksList"], function(liste) {
 		liste = liste["tasksList"] || [];

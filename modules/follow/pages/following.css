@@ -1,0 +1,272 @@
+#userProfile {
+	max-width: 1200px;
+	overflow: auto;
+	margin: auto;
+	padding: 20px 0px;
+	text-align: center;
+}
+#userContent {
+	text-align: justify;
+	hyphens: auto;
+	padding: 0px 25px;
+}
+pre {
+	margin: 8px 4px 8px 16px;
+	padding: 6px;
+	padding-left: 8px;
+	border: 1px solid #999;
+	border-left: 4px solid #222;
+}
+#userLink {
+	display: none;
+	margin-top: 30px;
+}
+aside {
+	width: 280px;
+}
+
+/*
+	From france-ioi.org and zeste-style
+*/
+
+/* Profile */
+.perso-space-around-button {
+  margin: 3em;
+}
+.perso-bullets li {
+  padding-top: .3em;
+}
+.perso-photo {
+  float: right;
+  margin-top: .5em;
+  margin-right: 3em;
+}
+.perso-recover div {
+  margin-top: 1em;
+}
+.perso-help {
+  color: red;
+  font-weight: bold;
+}
+.perso-error {
+  color: red;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+.perso-fiche-form {
+  margin-bottom: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #CCC;
+}
+.perso-fiche-edit {
+  margin-top: 8px;
+  font-size: 1.3em;
+  text-align: center;
+}
+.perso-fiche-table,
+.register-preview {
+  overflow: hidden;
+}
+.avatar-display {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 8px;
+  border: 1px solid gray;
+  background: #FFFFFC;
+}
+.avatar-display td {
+  padding: 5px 5px 0 5px;
+  text-align: center;
+}
+.avatar-display tr:last-child td {
+  padding-bottom: 5px;
+}
+.perso-details-table,
+.perso-details-table tbody,
+.perso-details-table tr {
+  display: block;
+}
+.perso-details-table {
+  position: relative;
+}
+.perso-details-table tr {
+  margin-left: 136px;
+  margin-bottom: 4px;
+}
+.perso-details-table td {
+  padding-bottom: 2px;
+  vertical-align: top;
+}
+.perso-details-table td:first-child {
+  width: 120px;
+  color: #263;
+}
+.user-recent-sub table {
+  width: 100%;
+  background: #F8FAFF;
+}
+.user-recent-sub td {
+  padding: 2px 4px;
+  text-align: left;
+  vertical-align: top;
+}
+.user-recent-sub-title {
+  background: #C0D0F8;
+  font-weight: bold;
+}
+.user-recent-sub a {
+  color: #009;
+}
+/* Tables */
+table {
+  border-collapse: collapse;
+  text-align: left;
+}
+th,
+td {
+  padding: 0;
+  vertical-align: middle;
+}
+table.classic {
+  margin: auto;
+}
+table.classic td,
+table.classic th,
+table.classicleft td,
+table.classicleft th {
+  padding: 3px 5px;
+  border: 1px solid black;
+  text-align: center;
+}
+table.classic th,
+table.classicleft th {
+  font-weight: bold;
+}
+table.classicleft {
+  margin: 0;
+}
+table.classicleft td,
+table.classicleft th {
+  text-align: left;
+}
+
+/* Links */
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+/*
+	Zeste
+*/
+#userContent h2 {
+    color: #084561;
+    border-bottom: 1px solid #f8ad32;
+}
+.avatar-display img {
+	max-width: 256px;
+	max-height: 256px;
+}
+label[for="sLogin"] {display: inline-block;
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid #d2d5d6;
+	border-right-width: 0px;
+	background: white;
+	color: #555;
+	padding-left: 10px;
+	padding-right: 5px;
+	font-size: 1rem;
+}
+input#sLogin {
+	/*min-width: 60%;*/
+	height: 40px;
+	border-right-width: 0px;
+	border-left-width: 0px;
+	font-size: 1rem;
+	flex: 1;
+}
+input#sLogin:focus {
+	outline: none;
+}
+input[name="bShow"] {
+	display: inline-block;
+	height: 42px;
+	line-height: 42px;
+	width: 42px;
+	border: 1px solid #d2d5d6;
+	border-left-width: 0px;
+	font-size: 0px;
+	background: url("data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDU2Ljk2NiA1Ni45NjYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDU2Ljk2NiA1Ni45NjY7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMzJweCIgaGVpZ2h0PSIzMnB4Ij4KPHBhdGggZD0iTTU1LjE0Niw1MS44ODdMNDEuNTg4LDM3Ljc4NmMzLjQ4Ni00LjE0NCw1LjM5Ni05LjM1OCw1LjM5Ni0xNC43ODZjMC0xMi42ODItMTAuMzE4LTIzLTIzLTIzcy0yMywxMC4zMTgtMjMsMjMgIHMxMC4zMTgsMjMsMjMsMjNjNC43NjEsMCw5LjI5OC0xLjQzNiwxMy4xNzctNC4xNjJsMTMuNjYxLDE0LjIwOGMwLjU3MSwwLjU5MywxLjMzOSwwLjkyLDIuMTYyLDAuOTIgIGMwLjc3OSwwLDEuNTE4LTAuMjk3LDIuMDc5LTAuODM3QzU2LjI1NSw1NC45ODIsNTYuMjkzLDUzLjA4LDU1LjE0Niw1MS44ODd6IE0yMy45ODQsNmM5LjM3NCwwLDE3LDcuNjI2LDE3LDE3cy03LjYyNiwxNy0xNywxNyAgcy0xNy03LjYyNi0xNy0xN1MxNC42MSw2LDIzLjk4NCw2eiIgZmlsbD0iIzAwMDAwMCIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K") white;
+	background-repeat: no-repeat;
+	background-size: 16px 16px;
+	background-position: center;
+}
+input[name="bShow"]:hover {
+	background: url("data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDU2Ljk2NiA1Ni45NjYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDU2Ljk2NiA1Ni45NjY7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMzJweCIgaGVpZ2h0PSIzMnB4Ij4KPHBhdGggZD0iTTU1LjE0Niw1MS44ODdMNDEuNTg4LDM3Ljc4NmMzLjQ4Ni00LjE0NCw1LjM5Ni05LjM1OCw1LjM5Ni0xNC43ODZjMC0xMi42ODItMTAuMzE4LTIzLTIzLTIzcy0yMywxMC4zMTgtMjMsMjMgIHMxMC4zMTgsMjMsMjMsMjNjNC43NjEsMCw5LjI5OC0xLjQzNiwxMy4xNzctNC4xNjJsMTMuNjYxLDE0LjIwOGMwLjU3MSwwLjU5MywxLjMzOSwwLjkyLDIuMTYyLDAuOTIgIGMwLjc3OSwwLDEuNTE4LTAuMjk3LDIuMDc5LTAuODM3QzU2LjI1NSw1NC45ODIsNTYuMjkzLDUzLjA4LDU1LjE0Niw1MS44ODd6IE0yMy45ODQsNmM5LjM3NCwwLDE3LDcuNjI2LDE3LDE3cy03LjYyNiwxNy0xNywxNyAgcy0xNy03LjYyNi0xNy0xN1MxNC42MSw2LDIzLjk4NCw2eiIgZmlsbD0iIzAwMDAwMCIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K") #ccc;
+	background-repeat: no-repeat;
+	background-size: 16px 16px;
+	background-position: center;
+}
+.perso-fiche-edit a {
+	display: inline-block;
+	margin: 3px 10px;
+}
+.perso-details-table span {
+	color: #4d4d4d;
+	font-weight: bold;
+}
+.avatar-display {
+	border: none;
+	background: none;
+}
+.perso-fiche-form {
+	border-bottom: 1px solid #f8ad32;
+}
+.perso-page > ul {
+	list-style-type: none;
+}
+
+/*
+	Tableaux
+*/
+.user-recent-sub tr, tr.classement_row_first, tr.classement_row_data {
+	background: #0e77a8!important;
+	color: #fff;
+	font-size: 0.9rem;
+}
+.user-recent-sub tr td, tr.classement_row_first td, tr.classement_row_data td {
+	border: none;
+	border-top: 1px solid hsla(0,0%,100%,.2);
+	padding: 10px;
+}
+.user-recent-sub tr:hover, tr.classement_row_first:hover, tr.classement_row_data:hover {
+	background: #0c6790!important;
+}
+tr[style="background-color:rgb(255, 85, 85)"] {
+	background: #f8ad32!important;
+}
+tr[style="background-color:rgb(255, 85, 85)"]:hover {
+	background: /*#f7a319*/#d68807!important;
+}
+.user-recent-sub tr a, tr.classement_row_first a, tr.classement_row_data a {
+	color: #fff!important;
+}
+.user-recent-sub tr a:hover, tr.classement_row_first a:hover, tr.classement_row_data a:hover {
+	text-decoration: none;
+}
+.user-recent-sub tr.user-recent-sub-title, tr.classement_row_first {
+	background: #063449!important;
+	padding: 5px 3px;
+	font-size: 1.2rem;
+}
+.classement_row_data td[colspan="5"] {
+	background: #0c6790!important;
+}
+
+/*
+	Some additions
+*/
+.perso-details-table td:first-child {
+	width: 150px;
+}

@@ -191,6 +191,9 @@ var zesteJSModuleMain = function() {
 			el.css("text-decoration", "underline");
 		}
 	});
+
+	var customCss = ".navigbox a:after { background-image: url(\"" + zesteFiles["ariane"] + "\"); }\n";
+	$( "<style>" + customCss + "</style>" ).appendTo("head");
 }
 
 if ((typeof zesteFiles) != "undefined" && (typeof isConnected) != "undefined") {

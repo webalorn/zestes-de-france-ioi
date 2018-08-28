@@ -24,6 +24,18 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
+function listEq(l1, l2) {
+	if (l1.length != l2.length) {
+		return false;
+	}
+	for (var i in l1) {
+		if (l1[i] != l2[i]) {
+			return false;
+		}
+	}
+	return true;
+}
+
 function transformTaskDom(taskDom, callback) {
 	var selector = taskDom.find("img[src^=http]");
 	if (selector.length) {
@@ -104,6 +116,43 @@ var offlineTasks = {
 	},
 };
 
+var usersFollowing = {
+	getFollowingList: function (callback) {
+		chrome.storage.local.get(["followingList"], function(liste) {
+			liste = liste["followingList"] || [];
+			callback(liste);
+		});
+	},
+	isFollowed: function (username, callback) {
+		this.getFollowingList(function(followingList) {
+			callback(followingList.indexOf(username) != -1);
+		});
+	},
+	updateFollowingList: function(newList, callback) {
+		chrome.storage.local.set({followingList : newList}, callback);
+	},
+	followUser: function (username, callback) {
+		var me = this;
+		this.getFollowingList(function(followingList) {
+			var index = followingList.indexOf(username);
+			if (index == -1) {
+				followingList.push(username);
+				me.updateFollowingList(followingList, callback);
+			}
+		});
+	},
+	unfollowUser: function (username, callback) {
+		var me = this;
+		this.getFollowingList(function(followingList) {
+			var index = followingList.indexOf(username);
+			if (index > -1) {
+				followingList.splice(index, 1);
+				me.updateFollowingList(followingList, callback);
+			}
+		});
+	},
+};
+
 var config = {
 	default: {
 		enable_text_editor: true,
@@ -114,6 +163,7 @@ var config = {
 		custom_emojis: true,
 		enable_compact: false,
 		compact_rm_menus: true,
+		enable_follow_users: true,
 	},
 	get: function(callback) {
 		var configObj = this;

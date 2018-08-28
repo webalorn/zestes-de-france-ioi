@@ -1,6 +1,5 @@
 $(function() {
 	$(".optionsList input").change(function() {
-		console.log(this.checked);
 		var el = $(this);
 		el.parent().find("ul li input").prop("disabled", !this.checked);
 

@@ -96,3 +96,16 @@ button:hover, input[type=submit]:hover, input[type=button]:hover {
 button:focus, input[type=submit]:focus, input[type=button]:focus {
 	outline: none;
 }
+
+.loader {
+	display: block;
+	margin: auto;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	max-width: 100px;
+	max-height: 100px;
+}
+
+main a:link, main a:visited {
+	color: #1088bf;
+}
