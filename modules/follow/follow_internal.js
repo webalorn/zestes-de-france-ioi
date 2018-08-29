@@ -8,9 +8,9 @@ function setFollowingtate(state) {
 
 function followUsersInternal() {
 	let username = "";
-	if ($(".menuLogin .menuboxcontents > a").length) { // Connected
+	/*if ($(".menuLogin .menuboxcontents > a").length) { // Connected
 		username = $("label[for=\"menuLoginToggle\"]").text();
-	}
+	}*/
 
 	if ($(".perso-page").length) {
 		let otherName = $("#sLogin").val();
