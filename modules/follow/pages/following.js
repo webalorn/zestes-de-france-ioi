@@ -5,6 +5,38 @@ function createPersoRow(title, content) {
 	return $('<tr><td><span class="perso-title">'+title+'</span></td><td>'+content+'</td></tr>');
 }
 
+function dateToDuration(date) {
+	console.log(date);
+	date = date.split('/');
+	date = new Date(parseInt(date[2]), parseInt(date[1]) - 1, parseInt(date[0]));
+	var duration = Date.now() - date;
+	var output = "";
+	duration = duration / (1000 * 3600 * 24);
+	var year = 365.25;
+
+	var nbYears = 0;
+	while (duration >= year) {
+		duration -= year;
+		nbYears += 1;
+	}
+	duration = Math.floor(duration);
+	if (nbYears > 1) {
+		output = output + nbYears + " ans";
+	} else if (nbYears == 1) {
+		output = "1 an";
+	}
+	if (duration > 0) {
+		if (output != "") {
+			output += " ";
+		}
+		output += duration + " jour";
+		if (duration > 1) {
+			output += "s";
+		}
+	}
+	return output;
+}
+
 function getUser(username, callback) {
 	$.get('http://www.france-ioi.org/user/perso.php?sLogin=' + username + '&bShow=Afficher', function (data) {
 		var page = $(data).find(".perso-page");
@@ -22,6 +54,17 @@ function getUser(username, callback) {
 
 			table.append(ratingRow);
 			table.append(createPersoRow('Résolus', rating[username].solved));
+		}
+		var date = page.find(".user-recent-sub tr").eq(1).find("td").eq(3).find('a');
+		if (date.length != 0) {
+			date = date.text();
+			date = dateToDuration(date);
+			if (date == "") {
+				date = "aujourd'hui";
+			} else {
+				date = "il y a " + date;
+			}
+			table.append(createPersoRow("Dernier résolu", date));
 		}
 		callback(page);
 	});
@@ -83,7 +126,11 @@ function addUserTile(username, overall, userTile, callback) {
 			displayUser(username);
 		});
 		overall.append(userTile);
-		userTile.find(".userTileImg img").attr("src", userProfile.find(".avatar-display img").attr("src"));
+		userTile.find(".userTileImg img")
+			.attr("src", userProfile.find(".avatar-display img").attr("src"))
+			.click(function() {
+				chrome.tabs.create({url: 'http://www.france-ioi.org/user/perso.php?sLogin=' + username + '&bShow=Afficher'});
+			});
 		userTile.find(".levelLi").text(userProfile.find(".avatar-display td").eq(2).text());
 
 		userProfile.find("tr").each(function(){
@@ -110,8 +157,19 @@ function addUserTile(username, overall, userTile, callback) {
 			}
 		});
 
-		var date = userProfile.find(".user-recent-sub tr").eq(1).find("td").eq(3).find('a').text();
-		userTile.find(".lastSolvedAt").text(date);
+		var date = userProfile.find(".user-recent-sub tr").eq(1).find("td").eq(3).find('a');
+		if (date.length != 0) {
+			date = date.text();
+			date = dateToDuration(date);
+			if (date == "") {
+				date = "aujourd'hui";
+			} else {
+				date = "il y a " + date;
+			}
+			userTile.find(".lastSolvedAt span").text(date);
+		} else {
+			userTile.find(".lastSolvedAt").css("display", "none");
+		}
 		callback();
 	});
 }
