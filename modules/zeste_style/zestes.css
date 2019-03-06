@@ -116,7 +116,7 @@ html[lang=fr] .menu-language-select {
 	padding: 11px 30px;
 }
 .headerbox img {
-	filter:	brightness(180%) contrast(90%);
+	filter: brightness(180%) contrast(90%);
 }
 
 #timeRemaining {
@@ -155,11 +155,11 @@ html[lang=fr] .menu-language-select {
 }
 .navigbox a:after {
 	display: inline-block;
-    content: " ";
-    /*background-image: added in javascript*/
-    background-size: contain;
+	content: " ";
+	/*background-image: added in javascript*/
+	background-size: contain;
 	background-repeat: no-repeat;
-    opacity: .3;
+	opacity: .3;
 	position: absolute;
 	top: 0px;
 	right: -23px;
@@ -226,10 +226,10 @@ html[lang=fr] .menu-language-select {
 	padding: 0px;
 }
 #zesteSubMenu ul li {
-    margin: 0px;
+	margin: 0px;
 }
 #zesteSubMenu ul li:nth-child(odd) {
-    background-color: #084561;
+	background-color: #084561;
 }
 #zesteSubMenu ul li a {
 	display: block;
@@ -271,8 +271,8 @@ html[lang=fr] .menu-language-select {
 	width: 100%;
 	border-top: 3px solid #f8ad32;
 	background: #084561;
-    height: 40px;
-    line-height: 40px;
+	height: 40px;
+	line-height: 40px;
 	z-index: 0;
 	color: #eee;
 }
@@ -316,19 +316,19 @@ button, input[type=submit], input[type=button], .perso-fiche-edit a, #templatesB
 	border: none;
 	color: white!important;
 	font-size: 0.875rem;
-    border-bottom: 1px solid #396a81;
+	border-bottom: 1px solid #396a81;
 	
 	-webkit-transition-property: color,background,border;
-    transition-property: color,background,border;
-    -webkit-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -webkit-transition-duration: .15s;
-    transition-duration: .15s;
+	transition-property: color,background,border;
+	-webkit-transition-timing-function: ease;
+	transition-timing-function: ease;
+	-webkit-transition-duration: .15s;
+	transition-duration: .15s;
 }
 button:hover, input[type=submit]:hover, input[type=button]:hover, .perso-fiche-edit a:hover, #templatesBlock > label > span:hover, .thread-message form > a:hover {
 	cursor: pointer;
 	background: #fff;
-    color: #396a81!important;
+	color: #396a81!important;
 }
 button:focus, input[type=submit]:focus, input[type=button]:focus, #templatesBlock > label > span:focus, .thread-message form > a:focus {
 	outline: none;
@@ -353,18 +353,18 @@ form input[type=checkbox] {
 }
 
 ::selection {
-    color: #fff;
-    background: #084561;
-    background-image: initial;
-    background-position-x: initial;
-    background-position-y: initial;
-    background-size: initial;
-    background-repeat-x: initial;
-    background-repeat-y: initial;
-    background-attachment: initial;
-    background-origin: initial;
-    background-clip: initial;
-    background-color: rgb(8, 69, 97);
+	color: #fff;
+	background: #084561;
+	background-image: initial;
+	background-position-x: initial;
+	background-position-y: initial;
+	background-size: initial;
+	background-repeat-x: initial;
+	background-repeat-y: initial;
+	background-attachment: initial;
+	background-origin: initial;
+	background-clip: initial;
+	background-color: rgb(8, 69, 97);
 }
 
 main h2 {
@@ -394,9 +394,9 @@ main h2 {
 	border-right: 2px solid transparent;
 	margin: 0px!important;
 	
-    transition-property: color,background,border;
-    transition-timing-function: ease;
-    transition-duration: .1s;
+	transition-property: color,background,border;
+	transition-timing-function: ease;
+	transition-duration: .1s;
 }
 .ui-tabs-nav li a {
 	padding: 0.8em 1.2em!important;
@@ -505,12 +505,12 @@ main h2 {
 }
 #homeContents tr {
 	background: #fff;
-    min-height: 60px;
-    display: flex;
-    border: 1px solid #dedede;
-    border-bottom-width: 2px;
-    margin: 0 10px 15px;
-    overflow: hidden;
+	min-height: 60px;
+	display: flex;
+	border: 1px solid #dedede;
+	border-bottom-width: 2px;
+	margin: 0 10px 15px;
+	overflow: hidden;
 }
 #homeContents td:first-child {
 	color: red;
@@ -714,22 +714,22 @@ h2.contentsbox-subtitle {
 	color: #222!important;
 }
 .chapter-item-row:hover {
-    background: white;
+	background: white;
 }
 .chapter-item-row {
-    border-top: 1px solid #ccc;
-    border-bottom-width: 0px!important;
+	border-top: 1px solid #ccc;
+	border-bottom-width: 0px!important;
 	border-left: 3px solid transparent;
 }
 .chapter-item-row:last-child {
-    border-bottom: 1px solid #ccc!important;
+	border-bottom: 1px solid #ccc!important;
 }
 .chapter-item-row:hover {
 	background: white;
 	border-left-color: #1088bf;
 }
 .trChapter:hover td {
-    background: white!important;
+	background: white!important;
 }
 .trChapter {
 	border-left: 2px solid transparent;
@@ -800,16 +800,16 @@ h2.contentsbox-subtitle {
 	background: none;
 }
 .forum-table-thread:before {
-    content: " ";
-    display: block;
-    position: absolute;
-    background: transparent;
-    height: 100%;
-    width: 2px;
+	content: " ";
+	display: block;
+	position: absolute;
+	background: transparent;
+	height: 100%;
+	width: 2px;
 }
 .forum-table-thread:hover:before {
 	width: 4px;
-    background: #1088bf;
+	background: #1088bf;
 }
 .help-possible:hover:before {
 	background: #eb4d4b;
@@ -818,20 +818,20 @@ h2.contentsbox-subtitle {
 	/*background: #ffe9d6;*/
 }
 .forum-table-thread .forum-table-row {
-    background: none!important;
+	background: none!important;
 }
 .forum-table-thread:hover .forum-table-row:first-child .forum-table-cell {
-    padding-top: 4px;
-    padding-left: 4px;
+	padding-top: 4px;
+	padding-left: 4px;
 }
 .forum-table-thread:hover .forum-table-cell:last-child {
-    padding-right: 4px;
+	padding-right: 4px;
 }
 .forum-table-thread:hover .forum-table-row:last-child .forum-table-cell {
-    padding-bottom: 3px;
+	padding-bottom: 3px;
 }
 .forum-table-thread:hover .forum-table-cell:first-child {
-    padding-left: 4px;
+	padding-left: 4px;
 }
 .forum-table-thread a {
 	text-decoration: none;
@@ -941,7 +941,7 @@ textarea.thread-write {
 }
 .task-contents .explication_commandes:before, .task-contents .explanationBlock.commands:before {
 	content: "";
-    background: url("data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUyIDUyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MiA1MjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxwYXRoIHN0eWxlPSJmaWxsOiNDN0NBQzc7IiBkPSJNNDguODcyLDIyLjg5OGMtNC42NDMtMC44OTMtNi43NzItNi4zMTgtMy45NzYtMTAuMTNsMS45NjQtMi42NzhsLTQuMjQzLTQuMjQzbC0yLjYzOCwxLjc4NyAgYy0zLjkxNCwyLjY1Mi05LjI1NiwwLjMyMS05Ljk3NC00LjM1MUwyOS41LDBoLTZsLTAuNzc3LDQuMDQxYy0wLjg3Myw0LjU0LTYuMTA1LDYuNzA4LTkuOTMzLDQuMTE1TDkuMzgzLDUuODQ3TDUuMTQsMTAuMDkgIGwxLjk2NCwyLjY3OGMyLjc5NiwzLjgxMiwwLjY2Niw5LjIzNy0zLjk3NiwxMC4xM0wwLDIzLjV2NmwzLjI4MywwLjUwNWM0LjY3MywwLjcxOSw3LjAwMyw2LjA2MSw0LjM1MSw5Ljk3NWwtMS43ODcsMi42MzcgIGw0LjI0Myw0LjI0M2wyLjY3OC0xLjk2NGMzLjgxMi0yLjc5Niw5LjIzNy0wLjY2NywxMC4xMywzLjk3NkwyMy41LDUyaDZsMC4zNTUtMi4zMDljMC43MzUtNC43NzYsNi4yNzQtNy4wNzEsMTAuMTcxLTQuMjEzICBsMS44ODQsMS4zODJsNC4yNDMtNC4yNDNsLTEuNzg3LTIuNjM3Yy0yLjY1MS0zLjkxNC0wLjMyMS05LjI1Niw0LjM1MS05Ljk3NUw1MiwyOS41di02TDQ4Ljg3MiwyMi44OTh6IE0yNi41LDMxICBjLTIuNDg1LDAtNC41LTIuMDE1LTQuNS00LjVzMi4wMTUtNC41LDQuNS00LjVzNC41LDIuMDE1LDQuNSw0LjVTMjguOTg1LDMxLDI2LjUsMzF6Ii8+CjxwYXRoIHN0eWxlPSJmaWxsOiM1NTYwODA7IiBkPSJNMjYuNSwxN2MtNS4yNDcsMC05LjUsNC4yNTMtOS41LDkuNXM0LjI1Myw5LjUsOS41LDkuNXM5LjUtNC4yNTMsOS41LTkuNVMzMS43NDcsMTcsMjYuNSwxN3ogICBNMjYuNSwzMWMtMi40ODUsMC00LjUtMi4wMTUtNC41LTQuNXMyLjAxNS00LjUsNC41LTQuNXM0LjUsMi4wMTUsNC41LDQuNVMyOC45ODUsMzEsMjYuNSwzMXoiLz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==");
+	background: url("data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUyIDUyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MiA1MjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxwYXRoIHN0eWxlPSJmaWxsOiNDN0NBQzc7IiBkPSJNNDguODcyLDIyLjg5OGMtNC42NDMtMC44OTMtNi43NzItNi4zMTgtMy45NzYtMTAuMTNsMS45NjQtMi42NzhsLTQuMjQzLTQuMjQzbC0yLjYzOCwxLjc4NyAgYy0zLjkxNCwyLjY1Mi05LjI1NiwwLjMyMS05Ljk3NC00LjM1MUwyOS41LDBoLTZsLTAuNzc3LDQuMDQxYy0wLjg3Myw0LjU0LTYuMTA1LDYuNzA4LTkuOTMzLDQuMTE1TDkuMzgzLDUuODQ3TDUuMTQsMTAuMDkgIGwxLjk2NCwyLjY3OGMyLjc5NiwzLjgxMiwwLjY2Niw5LjIzNy0zLjk3NiwxMC4xM0wwLDIzLjV2NmwzLjI4MywwLjUwNWM0LjY3MywwLjcxOSw3LjAwMyw2LjA2MSw0LjM1MSw5Ljk3NWwtMS43ODcsMi42MzcgIGw0LjI0Myw0LjI0M2wyLjY3OC0xLjk2NGMzLjgxMi0yLjc5Niw5LjIzNy0wLjY2NywxMC4xMywzLjk3NkwyMy41LDUyaDZsMC4zNTUtMi4zMDljMC43MzUtNC43NzYsNi4yNzQtNy4wNzEsMTAuMTcxLTQuMjEzICBsMS44ODQsMS4zODJsNC4yNDMtNC4yNDNsLTEuNzg3LTIuNjM3Yy0yLjY1MS0zLjkxNC0wLjMyMS05LjI1Niw0LjM1MS05Ljk3NUw1MiwyOS41di02TDQ4Ljg3MiwyMi44OTh6IE0yNi41LDMxICBjLTIuNDg1LDAtNC41LTIuMDE1LTQuNS00LjVzMi4wMTUtNC41LDQuNS00LjVzNC41LDIuMDE1LDQuNSw0LjVTMjguOTg1LDMxLDI2LjUsMzF6Ii8+CjxwYXRoIHN0eWxlPSJmaWxsOiM1NTYwODA7IiBkPSJNMjYuNSwxN2MtNS4yNDcsMC05LjUsNC4yNTMtOS41LDkuNXM0LjI1Myw5LjUsOS41LDkuNXM5LjUtNC4yNTMsOS41LTkuNVMzMS43NDcsMTcsMjYuNSwxN3ogICBNMjYuNSwzMWMtMi40ODUsMC00LjUtMi4wMTUtNC41LTQuNXMyLjAxNS00LjUsNC41LTQuNXM0LjUsMi4wMTUsNC41LDQuNVMyOC45ODUsMzEsMjYuNSwzMXoiLz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==");
 	width: 50px;
 	height: 50px;
 	background-size: cover;
@@ -951,25 +951,25 @@ textarea.thread-write {
 	Sujets
 */
 pre.task-example-input, pre.formatted-source.input, .syntaxhighlighter.nogutter.cin, cin {
-    border-left-color: #0984e3 !important;
+	border-left-color: #0984e3 !important;
 }
 .task-example-output, pre.formatted-source.output, pre.formatted-source.output-error, .syntaxhighlighter.nogutter.cout, .syntaxhighlighter.nogutter.couterror, cout, couterror {
-    border-left-color: #ee5253 !important;
+	border-left-color: #ee5253 !important;
 }
 pre.task-example-io, pre.formatted-source {
 	background: white;
 }
 .syntaxhighlighter, .syntaxhighlighter.nogutter, [id^="event_"] > pre, c, cpp, c_cpp, pascal, ocaml, java, javascool, jvs, java_jvs, python, pseudo, plain, cin, cout, couterror {
-    border-left: 4px solid #222f3e !important;
-    background: white;
+	border-left: 4px solid #222f3e !important;
+	background: white;
 }
 .syntaxhighlighter.nogutter.plain, pseudo, plain {
-    border-left-color: #6c5ce7 !important;
+	border-left-color: #6c5ce7 !important;
 }
 .morceau_cours, .explanationBlock.course, .morceau_cours, .explication_commandes, .histoireCulture, .explanationBlock {
-    border-color: #BDBDBD;
+	border-color: #BDBDBD;
 	border-width: 1px;
-    background: #EEEEEE;
+	background: #EEEEEE;
 }
 .explication_commandes {
 	background: #d6e4e8;
