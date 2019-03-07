@@ -1,6 +1,6 @@
 {
   "name": "Zestes de France-IOI",
-  "description": "Améliore l'interface de France-IOI, dans un style inspiré de zestedesavoir.com, et permet d'enregistrer des sujets hors-ligne",
+  "description": "Améliore l'interface de France-IOI, dans un style inspiré de zestedesavoir.com, et permet d'enregistrer des sujets hors ligne",
   "version": "1.5.0",
   "permissions": ["tabs", "http://www.france-ioi.org/", "http://data.france-ioi.org/", "activeTab", "storage", "unlimitedStorage"],
   "options_page": "pages/options.html",

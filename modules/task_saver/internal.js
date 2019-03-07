@@ -23,7 +23,7 @@ function taskSaverInternal() {
 			"chapter": idChapter,
 		}
 
-		var savedDom = $('<input type="checkbox" id="taskSaved" /><label for="taskSaved"><div></div><span>Sauvegarder le sujet hors-ligne</span></label>');
+		var savedDom = $('<input type="checkbox" id="taskSaved" /><label for="taskSaved"><div></div><span>Sauvegarder le sujet hors ligne</span></label>');
 		$(".links-box-middle + td").first().prepend(savedDom);
 
 		chrome.runtime.sendMessage(req);
