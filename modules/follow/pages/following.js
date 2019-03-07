@@ -158,7 +158,7 @@ function displayUsersList() {
 			});
 			$("aside ul").append(el);
 			var img = $('<img src="/img/delete.svg" />').click(function() {
-				if (confirm("Voulez-vous vraiment ne plus suivre \"" + username + "\" ?")) {
+				if (confirm("Voulez-vous vraiment cesser de suivre « " + username + " » ?")) {
 					usersFollowing.unfollowUser(username, function() {
 						displayUsersList();
 					});
