@@ -8,12 +8,11 @@ if (zesteConfig.compact_rm_menus) {
 		"http://www.france-ioi.org/algo/chapters.php",
 		"http://www.france-ioi.org/forum/index.php",
 		"http://www.france-ioi.org/algo/rankingMain.php",
-		"http://www.france-ioi.org/algo/rankingMain.php",
 		"http://www.france-ioi.org/comm/contact.php?bCreate=1&sKindItem=general",
 	]
 	$(".menuSitemap").find("a").each(function() {
 		var el = $(this);
-		console.log(el.attr("href"), el.attr("href") in allowedLinks);
+		//console.log(el.attr("href"), el.attr("href") in allowedLinks);
 		if (!allowedLinks.includes(el.attr("href"))) {
 			el.remove();
 		}

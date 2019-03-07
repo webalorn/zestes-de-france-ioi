@@ -16,16 +16,20 @@ var zesteJSModuleMain = function() {
 	}
 
 	/*
-		Add css classes
+		Add CSS classes
 	*/
 	if ($("#heading-link-box span.direction-sep").size()) {
 		$("#heading-link-box").addClass("menuLiensTabs");
-		$("#heading-link-box a[href=\""+window.location.href+"\"]").parent().addClass("menuLiensActuel");
+		$("#heading-link-box a").each(function() {
+		   if (this.href == window.location.href) {
+		      $(this).parent().addClass("menuLiensActuel");
+	      }
+      });
 	}
 	$(".chapters-list-pbs").parent().addClass("trChapter");
 
 	/*
-		Subjects
+		Tasks
 	*/
 	$(".task-contents > div").each(function() {
 		var el = $(this);

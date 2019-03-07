@@ -34,7 +34,7 @@ function diplaySubjectList() {
 				});
 				$("aside ul").append(el);
 				var img = $('<img src="/img/delete.svg" />').click(function() {
-					if (confirm("Voulez-vous vraiment supprimer le sujet \"" + task.title + "\" ?")) {
+					if (confirm("Voulez-vous vraiment supprimer le sujet « " + task.title + " » ?")) {
 						offlineTasks.forgetTask(taskId, function() {
 							diplaySubjectList();
 						});
