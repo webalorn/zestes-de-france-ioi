@@ -6,7 +6,6 @@ function createPersoRow(title, content) {
 }
 
 function dateToDuration(date) {
-	console.log(date);
 	date = date.split('/');
 	date = new Date(parseInt(date[2]), parseInt(date[1]) - 1, parseInt(date[0]));
 	var duration = Date.now() - date;
@@ -101,6 +100,9 @@ function getRating(callback) {
 		var newRating = {};
 		page.find('.classement_row_data').each(function() {
 			var rowVals = $(this).find("td");
+			if (rowVals.length < 2) {
+				return;
+			}
 			var ratingId = rowVals.eq(0).text();
 			var rowUsername = rowVals.eq(1).find("a").text();
 			var nbSolved = rowVals.eq(4).text();
@@ -157,7 +159,7 @@ function addUserTile(username, overall, userTile, callback) {
 			}
 		});
 
-		var date = userProfile.find(".user-recent-sub tr").eq(1).find("td").eq(3).find('a');
+		var date = userProfile.find(".user-recent-sub tr").eq(1).find("td").eq(3);
 		if (date.length != 0) {
 			date = date.text();
 			date = dateToDuration(date);
