@@ -28,7 +28,7 @@ function drawChartOf(username, checksum) {
 		 },
 		 tooltip: {
 			 formatter: function() {
-					 return Highcharts.dateFormat('%d/%m/%Y', this.x) +' : '+ this.y;
+					 return Highcharts.dateFormat('%d/%m/%Y', this.x) +' : '+ this.y;
 			 }
 		 },
 		 legend: {
