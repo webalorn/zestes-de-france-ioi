@@ -1,12 +1,4 @@
-var zBodyHiddenId = setInterval(function(){
-	if (document.body) {
-		document.body.style.visibility = "hidden";
-		window.clearInterval(zBodyHiddenId);
-	}
-}, 10);
-
 function startInjection() {
-	document.body.style.visibility = "hidden";
 	function getZesteFilesJS() {
 		let zesteFiles = {
 			"logo" : "img/logo.png",
@@ -129,8 +121,8 @@ function startInjection() {
 			}
 		}
 		$(function() {
-			document.body.style.visibility = "visible";
+			document.documentElement.classList.add("zestes");
 		});
 	});
 }
-document.addEventListener('DOMContentLoaded', startInjection, false);
+document.addEventListener('DOMContentLoaded', startInjection);
