@@ -10,6 +10,7 @@ function startInjection() {
 			"formatBar_template" : "html/formatBar.html",
 			"offline_off" : "img/offline_off.png",
 			"offline_on": "img/offline_on.png",
+			"focus": "img/focus.png",
 			"emojis": "img/emojis",
 		};
 		for (let name in zesteFiles) {
@@ -72,12 +73,17 @@ function startInjection() {
 			internal: [followUsersInternal],
 			require: ["follow_users"],
 		},
+		{
+			name: "Focus mode",
+			css: ["modules/focus_mode/focus.css"],
+			js: ["modules/focus_mode/focus.js"],
+		},
 	];
 
 	config.get(function(configValues) {
 		zConfig = configValues;
-		let body = document.getElementsByTagName('body')[0];
-		let head = document.getElementsByTagName('head')[0];
+		let body = document.body;
+		let head = document.head;
 
 		for (let mod of zModules) {
 			function injectThisMod() {

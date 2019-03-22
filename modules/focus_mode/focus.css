@@ -1,29 +1,29 @@
 /*
-	Mode offline pour les sujets
+	Mode sans distraction pour les sujets
 */
-#taskSaved {
+#focusMode {
 	display: none;
 }
-label[for="taskSaved"] {
+label[for="focusMode"] {
 	display: inline-block;
 	height: 32px;
 	width: 32px;
-	margin: 0px 10px;
 	cursor: pointer;
 	position: relative;
 }
-label[for="taskSaved"] div {
+label[for="focusMode"] div {
 	width: 100%;
 	height: 100%;
-	display: none;
+	background-size: contain;
+	opacity: .4;
 }
-#taskSaved:checked + label {
+#focusMode:checked + label {
 	background: transparent;
 }
-#taskSaved:checked + label div {
-	display: block;
+#focusMode:checked + label div {
+	opacity: 1;
 }
-label[for="taskSaved"] span {
+label[for="focusMode"] span {
 	z-index: 8;
 	position: absolute;
 	left: -52px;
