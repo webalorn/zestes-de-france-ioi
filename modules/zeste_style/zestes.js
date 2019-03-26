@@ -1,8 +1,9 @@
 var zesteJSModuleMain = function() {
+	$("html").attr("zeste", "true");
+
 	/*
 		Change footer location, set page min-height and column size
 	*/
-	$("html").attr("zeste", "true");
 	var footer = document.getElementById("return-link-box");
 	if (footer) {
 		document.body.appendChild(footer);

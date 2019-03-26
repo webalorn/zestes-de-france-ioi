@@ -1,12 +1,4 @@
-var zBodyHiddenId = setInterval(function(){
-	if (document.body) {
-		document.body.style.visibility = "hidden";
-		window.clearInterval(zBodyHiddenId);
-	}
-}, 10);
-
 function startInjection() {
-	document.body.style.visibility = "hidden";
 	function getZesteFilesJS() {
 		let zesteFiles = {
 			"logo" : "img/logo.png",
@@ -18,6 +10,7 @@ function startInjection() {
 			"formatBar_template" : "html/formatBar.html",
 			"offline_off" : "img/offline_off.png",
 			"offline_on": "img/offline_on.png",
+			"focus": "img/focus.png",
 			"emojis": "img/emojis",
 		};
 		for (let name in zesteFiles) {
@@ -80,12 +73,17 @@ function startInjection() {
 			internal: [followUsersInternal],
 			require: ["follow_users"],
 		},
+		{
+			name: "Focus mode",
+			css: ["modules/focus_mode/focus.css"],
+			js: ["modules/focus_mode/focus.js"],
+		},
 	];
 
 	config.get(function(configValues) {
 		zConfig = configValues;
-		let body = document.getElementsByTagName('body')[0];
-		let head = document.getElementsByTagName('head')[0];
+		let body = document.body;
+		let head = document.head;
 
 		for (let mod of zModules) {
 			function injectThisMod() {
@@ -129,8 +127,8 @@ function startInjection() {
 			}
 		}
 		$(function() {
-			document.body.style.visibility = "visible";
+			document.documentElement.classList.add("zestes");
 		});
 	});
 }
-document.addEventListener('DOMContentLoaded', startInjection, false);
+document.addEventListener('DOMContentLoaded', startInjection);
