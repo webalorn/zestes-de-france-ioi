@@ -26,7 +26,7 @@ function startInjection() {
 
 	let zModules = [
 		{
-			name: "Zeste datas",
+			name: "Zeste data",
 			js: [getZesteFilesJS, getZesteConfig],
 		},
 		{
@@ -38,7 +38,7 @@ function startInjection() {
 			js: ["modules/fixes/fixes.js"],
 		},
 		{
-			name: "Forum text-editor",
+			name: "Forum text editor",
 			js: ["modules/text_editor/edit_bar.js"],
 			css: ["modules/text_editor/edit_bar.css"],
 			require: ["text_editor"],
@@ -50,7 +50,7 @@ function startInjection() {
 			require: ["zeste"],
 		},
 		{
-			name: "Submisions style",
+			name: "Submissions style",
 			css: ["modules/submissions/submissions.css"],
 			require: ["submissions"],
 		},
@@ -77,6 +77,7 @@ function startInjection() {
 			name: "Focus mode",
 			css: ["modules/focus_mode/focus.css"],
 			js: ["modules/focus_mode/focus.js"],
+			require: ["focus_mode"],
 		},
 	];
 

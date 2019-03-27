@@ -8,7 +8,7 @@ label[for="taskSaved"] {
 	display: inline-block;
 	height: 32px;
 	width: 32px;
-	margin: 0px 10px;
+	margin-right: 10px;
 	cursor: pointer;
 	position: relative;
 }
