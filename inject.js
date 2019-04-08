@@ -105,8 +105,7 @@ function startInjection() {
 						link.rel = "stylesheet";
 						link.type = "text/css";
 						link.href = chrome.extension.getURL(cssContent);
-						head.appendChild(link);
-						$(body).append($(link).clone());
+						body.appendChild(link);
 					}
 				}
 				if (mod.internal) {
