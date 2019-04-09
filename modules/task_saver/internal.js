@@ -15,8 +15,7 @@ function taskSaverInternal() {
 				.end()  //again go back to selected element
 				.text();
 
-		var variables = $("script[src=\"../ext/jquery/jquery.blockUI.js\"] + script").text();
-		eval(variables);
+		var idTask = getParameterByName("idTask"), idChapter = getParameterByName("idChapter");
 		var req = {
 			"req": "on_task",
 			"task": idTask,

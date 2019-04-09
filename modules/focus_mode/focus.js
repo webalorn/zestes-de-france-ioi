@@ -1,6 +1,6 @@
 $(function() {
 	if ($("#task-tabs").length) {
-	   let cell = $(".links-box-middle + td");
+	   let cell = $("#heading-link-box .links-box-middle + td");
 	   if ($("#taskSaved").length) {
 	      cell.width(140);
       }

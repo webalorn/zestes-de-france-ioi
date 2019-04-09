@@ -1,6 +1,21 @@
 /*
 	Menus colonnes
 */
+@media screen and (min-width: 1090px) {
+	.menucol {
+		position: static;
+		height: auto;
+		float: left;
+		clear: left;
+		background: #f0f0f0;
+	}
+}
+@media screen and (min-width: 1290px) {
+	.menucol + .menucol {
+		float: right;
+		clear: right;
+	}
+}
 .menucol aside {
 	border-radius: 0px!important;
 	margin: 0px;
@@ -9,6 +24,8 @@
 	padding: 0px;
 	padding-bottom: 12px;
 	z-index: 2;
+	float: none;
+	position: static;
 }
 .menuLogin {
 	padding-bottom: 0px!important;
@@ -81,8 +98,14 @@ html[lang=fr] .menu-language-select {
 	Colonnes petites
 */
 @media screen and (max-width: 1089px) {
+	.menucolContainer {
+		text-align: center;
+	}
 	.menucol {
+		display: inline-block;
 		padding-bottom: 0px;
+		background: #f7f7f7;
+		text-align: left;
 	}
 	.menucol aside {
 		padding-bottom: 0px;
@@ -263,15 +286,17 @@ html[lang=fr] .menu-language-select {
 	padding: 0px;
 }
 
-
 /*
 	Footer
 */
 #return-link-box {
-	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin-bottom: 0;
 	border-top: 3px solid #f8ad32;
 	background: #084561;
-	height: 40px;
 	line-height: 40px;
 	z-index: 0;
 	color: #eee;
@@ -287,6 +312,10 @@ html[lang=fr] .menu-language-select {
 #return-link-box td:not(.links-box-middle) {
 	display: none;
 }
+#return-link-box .direction-box h1 {
+	margin: 0;
+}
+
 /* 
 	Main
 */
@@ -297,14 +326,24 @@ main, body {
 	color: black;
 	padding-bottom: 0px;
 }
+body {
+	position: absolute;
+	width: 100%;
+	min-height: 100%;
+	padding-bottom: 60px;
+	box-sizing: border-box;
+}
+main {
+	text-align: center;
+}
 .bottomBackground {
 	display: none;
 }
 main a:link, main a:visited {
 	color: #1088bf;
-	/*text-decoration: underline;*/
 }
 .contentsbox {
+	display: inline-block; /* Avoids clearing below the menus */
 	background-color: transparent;
 	border: none;
 }
