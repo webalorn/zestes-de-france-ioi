@@ -333,9 +333,6 @@ body {
 	padding-bottom: 60px;
 	box-sizing: border-box;
 }
-main {
-	text-align: center;
-}
 .bottomBackground {
 	display: none;
 }
@@ -343,7 +340,7 @@ main a:link, main a:visited {
 	color: #1088bf;
 }
 .contentsbox {
-	display: inline-block; /* Avoids clearing below the menus */
+	overflow-y: hidden; /* Avoids clearing below the menus */
 	background-color: transparent;
 	border: none;
 }
