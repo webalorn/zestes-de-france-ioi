@@ -15,7 +15,15 @@ function taskSaverInternal() {
 				.end()  //again go back to selected element
 				.text();
 
-		var idTask = getParameterByName("idTask"), idChapter = getParameterByName("idChapter");
+      var variables;
+      $("script:not([src])").each(function() {
+         var scriptContent = $(this).text();
+         if (scriptContent.match(/^\s*var\s*idTask\s*=/)) {
+            variables = scriptContent;
+         }
+      });
+      eval(variables);
+
 		var req = {
 			"req": "on_task",
 			"task": idTask,
