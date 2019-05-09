@@ -15,8 +15,15 @@ function taskSaverInternal() {
 				.end()  //again go back to selected element
 				.text();
 
-		var variables = $("script[src=\"../ext/jquery/jquery.blockUI.js\"] + script").text();
-		eval(variables);
+      var variables;
+      $("script:not([src])").each(function() {
+         var scriptContent = $(this).text();
+         if (scriptContent.match(/^\s*var\s*idTask\s*=/)) {
+            variables = scriptContent;
+         }
+      });
+      eval(variables);
+
 		var req = {
 			"req": "on_task",
 			"task": idTask,

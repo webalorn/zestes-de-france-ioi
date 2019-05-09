@@ -8,6 +8,7 @@ label[for="focusMode"] {
 	display: inline-block;
 	height: 32px;
 	width: 32px;
+	margin-right: 10px;
 	cursor: pointer;
 	position: relative;
 }
