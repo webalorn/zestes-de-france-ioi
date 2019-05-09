@@ -5,7 +5,7 @@ var zesteJSModuleMain = function() {
 		Fix menu structure
 	*/
 	var menucol = $('.menucol');
-	if (menucol.length == 1) {
+	if (menucol.length == 1 && !zesteConfig.compact_rm_menus) {
 		menucol.wrap($('<div class="menucolContainer">'));
 		$('<div class="menucol">').append($('.menuCommunity')).insertAfter(menucol);
 	}
