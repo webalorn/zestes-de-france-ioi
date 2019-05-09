@@ -28,6 +28,16 @@ function unfollowUser(request, sender, sendResponse) {
 	usersFollowing.unfollowUser(request.username);
 }
 
+function onFocusablePage(request, sender, sendResponse) {
+	chrome.storage.local.get(["is_focused"], function(vars) {
+		isFocused = vars["is_focused"] || false;
+		chrome.tabs.sendMessage(sender.tab.id, {req: "is_focus_enabled", focusEnabled: isFocused});
+	});
+}
+function setFocusMode(request, sender, sendResponse) {
+	chrome.storage.local.set({is_focused : request.is_focused});
+}
+
 chrome.runtime.onMessage.addListener(
 	function(request, sender, sendResponse) {
 		if (sender.tab) {
@@ -44,6 +54,10 @@ chrome.runtime.onMessage.addListener(
 				followUser(request, sender, sendResponse);
 			} else if (request.req == "unfollow_user") {
 				unfollowUser(request, sender, sendResponse);
+			} else if (request.req == "on_focusable_page") {
+				onFocusablePage(request, sender, sendResponse);
+			} else if (request.req == "set_focus_mode") {
+				setFocusMode(request, sender, sendResponse);
 			}
 		}
 	});

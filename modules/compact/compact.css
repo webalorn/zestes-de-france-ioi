@@ -3,6 +3,7 @@
 }
 .headerbox {
 	padding: 0px;
+	display: none;
 }
 .contentsbox-title {
 	margin: 0px;

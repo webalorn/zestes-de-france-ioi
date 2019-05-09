@@ -76,7 +76,7 @@ function startInjection() {
 		{
 			name: "Focus mode",
 			css: ["modules/focus_mode/focus.css"],
-			js: ["modules/focus_mode/focus.js"],
+			internal: [focusInternal],
 			require: ["focus_mode"],
 		},
 	];
