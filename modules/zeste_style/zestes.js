@@ -2,18 +2,12 @@ var zesteJSModuleMain = function() {
 	$("html").attr("zeste", "true");
 
 	/*
-		Change footer location, set page min-height and column size
+		Fix menu structure
 	*/
-	var footer = document.getElementById("return-link-box");
-	if (footer) {
-		document.body.appendChild(footer);
-
-		$("#return-link-box").css("display", "none");
-
-		var body = document.body, html = document.documentElement;
-		var height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
-		$("main").css("min-height", height);
-		$("#return-link-box").css("display", "block");
+	var menucol = $('.menucol');
+	if (menucol.length == 1) {
+		menucol.wrap($('<div class="menucolContainer">'));
+		$('<div class="menucol">').append($('.menuCommunity')).insertAfter(menucol);
 	}
 
 	/*
@@ -22,10 +16,10 @@ var zesteJSModuleMain = function() {
 	if ($("#heading-link-box span.direction-sep").size()) {
 		$("#heading-link-box").addClass("menuLiensTabs");
 		$("#heading-link-box a").each(function() {
-		   if (this.href == window.location.href) {
-		      $(this).parent().addClass("menuLiensActuel");
-	      }
-      });
+			if (this.href == window.location.href) {
+				$(this).parent().addClass("menuLiensActuel");
+			}
+		});
 	}
 	$(".chapters-list-pbs").parent().addClass("trChapter");
 
@@ -186,8 +180,11 @@ var zesteJSModuleMain = function() {
 	}
 	$('.classement_row_data td[colspan="4"]').attr("colspan", "5");
 
+	/*
+		Easter eggs
+	*/
 	if ($("#homeContents").size()) {
-		var the_game = $("<h4>THE GAME</h4>").css("color", "transparent").css("font-size", "2rem").css("text-align", "center");
+		var the_game = $("<h4>THE GAME</h4>").css({"color": "transparent", "font-size": "2rem", "text-align": "center", "margin-bottom": "-2rem"});
 		$(".contentsbox").append(the_game);
 	}
 	$(".classement_row_data td").each(function(id) {

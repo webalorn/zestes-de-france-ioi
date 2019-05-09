@@ -183,6 +183,7 @@ var config = {
 		enable_compact: false,
 		compact_rm_menus: true,
 		enable_follow_users: true,
+		enable_focus_mode: true,
 	},
 	get: function(callback) {
 		var configObj = this;
