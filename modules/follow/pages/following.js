@@ -38,23 +38,23 @@ function dateToDuration(date) {
 
 function getUser(username, callback) {
 	$.get('http://www.france-ioi.org/user/perso.php?sLogin=' + username + '&bShow=Afficher', function (data) {
-		var page = $(data).find(".perso-page");
+		let page = $(data).find(".perso-page");
 		page.find('img').each(function() {
-			var image = $(this);
+			let image = $(this);
 			if (image.attr("src").startsWith("../")) {
 				image.attr("src", image.attr("src").replace("../", "http://www.france-ioi.org/"));
 			}
 		});
 		page.find(".perso-fiche-edit").remove();
+		let table = page.find(".perso-details-table tbody");
 		if (username in rating) {
-			var table = page.find(".perso-details-table tbody");
-			var ratingRow = createPersoRow('Classement', rating[username].rating);
+			let ratingRow = createPersoRow('Classement', rating[username].rating);
 			ratingRow.find('td').eq(1).addClass('ratingTd');
 
 			table.append(ratingRow);
 			table.append(createPersoRow('Résolus', rating[username].solved));
 		}
-		var date = page.find(".user-recent-sub tr").eq(1).find("td").eq(3).find('a');
+		let date = page.find(".user-recent-sub tr").eq(1).find("td").eq(3).find('a');
 		if (date.length != 0) {
 			date = date.text();
 			date = dateToDuration(date);
