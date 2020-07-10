@@ -19,9 +19,9 @@ Cette extension a pour but d'améliorer l'interface utilisateur de la plateforme
 
 ## Modifier l'extension
 
-L'extension fonctionne avec Chrome et Firefox. Pour l'empaqueter, il suffit d'utliser `web-ext` (installable avec npm) :
-
+L'extension fonctionne avec Chrome et Firefox. Pour la tester et l'empaqueter, il suffit d'utliser `web-ext` (installable avec npm) :
 ```
+web-ext run -u "http://www.france-ioi.org/?bLogin=1&sLogin=votreLogin&sPassword=votreMotDePasse"
 web-ext build
 ```
 
