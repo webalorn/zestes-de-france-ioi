@@ -15,6 +15,7 @@ Cette extension a pour but d'améliorer l'interface utilisateur de la plateforme
 - Sauvegarde et consultation des sujets hors ligne.
 - Suivi d'utilisateurs.
 - Boite à outils améliorée pour formater ses messages sur le forum.
+- Mode sans distraction sur les pages de cours et de sujets (masque les menus et l'en-tête).
 
 ## Modifier l'extension
 
